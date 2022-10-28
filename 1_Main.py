@@ -4,14 +4,6 @@ import pandas as pd
 
 from PIL import Image
 
-import pymysql
-
-import sqlalchemy as db
-from sqlalchemy import create_engine
-from sqlalchemy import Table, Column, String, Integer, Float, Boolean
-from sqlalchemy import MetaData
-from sqlalchemy import select
-
 import matplotlib as plt
 from matplotlib import font_manager
 

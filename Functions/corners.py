@@ -1,59 +1,23 @@
 import pandas as pd
 import numpy as np
-import json
-import sys
-import random
 
-import ast
-
-import pymysql
-
-import sqlalchemy as db
-from sqlalchemy import create_engine
-from sqlalchemy import Table, Column, String, Integer, Float, Boolean
-from sqlalchemy import MetaData
-from sqlalchemy import select
 
 import matplotlib.pyplot as plt
-import matplotlib.gridspec as gridspec
-
-from matplotlib.colors import LinearSegmentedColormap
-from matplotlib.colors import to_rgba
-from matplotlib import cm
-from matplotlib import colorbar
-import matplotlib as mpl
-import matplotlib.patches as patches
-import matplotlib.path as mpath
-import matplotlib.lines as mlines
-import matplotlib.patches as mpatches
-from matplotlib.patches import RegularPolygon
-from matplotlib.patches import ArrowStyle
-from matplotlib.patches import Circle
-
-import plotly.express as px
-import seaborn as sns
 
 import warnings
 warnings.filterwarnings("ignore")
 
-from mplsoccer import Pitch, VerticalPitch, Radar, FontManager, add_image
+from mplsoccer import VerticalPitch, add_image
 
 from soccerplots.utils import add_image
 
-from highlight_text import  ax_text, fig_text
+from highlight_text import fig_text
 
 from soccerplots.utils import add_image
 
 from sklearn.cluster import KMeans
-from scipy import stats
-
-import abs_import
-
-import math
-import ipywidgets as widgets
 
 from pandas.core.common import SettingWithCopyWarning
-from IPython.display import display, Math, Latex
 
 import warnings
 warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)

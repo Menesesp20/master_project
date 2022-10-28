@@ -81,16 +81,8 @@ clubColors = {'Atlético Madrid' : ['#e23829', '#262e62'],
 sys.path.append('Functions')
 sys.path.append('whoscored_scraper')
 
-import Scouting as sc
-import radar as rd
-
-from Functions import corners, throw
-from Functions import optaData as opta
 from Functions import dashboard as ds
 from Functions import xT as xt
-from Functions import player as pl
-from whoscored_scraper import main
-from Functions import database as bd
 
 #############################################################################################################################################################
 

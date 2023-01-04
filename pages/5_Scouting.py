@@ -44,8 +44,6 @@ df = load_model()
 
 df.drop_duplicates(subset=['Player'], keep='first', inplace=True)
 
-df.drop([ 'Team within selected timeframe', 'On loan'], axis=1, inplace=True)
-
 #############################################################################################################################################################
 
 @st.cache

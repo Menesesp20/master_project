@@ -1618,9 +1618,7 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
                  fontsize=3);
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.383, bottom=0.898, width=0.04, height=0.05)
-        
-        return plt.show()
+        fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.33, bottom=0.898, width=0.04, height=0.05)
 
 ################################################################################################################################################
 

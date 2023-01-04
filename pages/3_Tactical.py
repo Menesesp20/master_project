@@ -36,20 +36,23 @@ import streamlit as st
 
 #############################################################################################################################################################
 
+#############################################################################################################################################################
 @st.cache
 def load_model():
-	  return pd.read_csv('Data/WyScout/WyScout.csv')
+    
+    df = pd.read_csv('Data/WyScout/WyScout.csv')
+    return df
 
 df = load_model()
 
 #############################################################################################################################################################
 
 @st.cache
-def load_model():
-	  return pd.read_csv('Data/opta/optaData.csv')
+def data():
+    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+    return eventsPlayers
 
-eventsPlayers = load_model()
-
+eventsPlayers = data()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS

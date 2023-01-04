@@ -1356,7 +1356,8 @@ def xT(df):
   #Import xT Grid, turn it into an array, and then get how many rows and columns it has
   @st.cache
   def load_model():
-          return pd.read_csv('xT/xT_Grid.csv', header=None)
+          xT = pd.read_csv('xT/xT_Grid.csv', header=None)
+          return xT
   
   xT = load_model()
   xT = np.array(xT)

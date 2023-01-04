@@ -434,7 +434,8 @@ elif scouting_choice == 'Player Similarity':
 
     @st.cache
     def load_model():
-        return pd.read_csv('Data/WyScout/WyScout.csv')
+        df = pd.read_csv('Data/WyScout/WyScout.csv')
+        return df
 
     df = load_model()
 

@@ -133,11 +133,15 @@ clubColors = {'Brazil' : ['#fadb04', '#1c3474'],
 
 import streamlit as st
 
-@st.cache
-def load_model():
-	  return pd.read_csv('Data/opta/optaData.csv')
+#############################################################################################################################################################
 
-df = load_model()
+@st.cache
+def data():
+    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+    return eventsPlayers
+
+df = data()
+df['isTouch'] = df['isTouch'].astype(bool)
 df["matchTimestamp"] = 60 * df["minute"] + df["second"]
 df["matchTimestamp"] = pd.to_timedelta(df["matchTimestamp"], unit='s')
 df.drop_duplicates(subset=['name', 'matchTimestamp', 'team', 'typedisplayName', 'x', 'y'], keep='first', inplace=True)
@@ -5653,9 +5657,12 @@ def possessionGained(team, league, eventType):
 ################################################################################################################################################
 #--------------------------------------------------- SCOUTING --------------------------------------------------------------------------------
 ################################################################################################################################################
+#############################################################################################################################################################
 @st.cache
 def load_model():
-	  return pd.read_csv('Data/WyScout/WyScout.csv')
+    
+    df = pd.read_csv('Data/WyScout/WyScout.csv')
+    return df
 
 wyscout = load_model()
 

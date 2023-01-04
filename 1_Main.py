@@ -28,18 +28,23 @@ st.sidebar.image(logo)
 
 from Functions import dashboard as ds
 
-@st.cache
-def load_model():
-	  return pd.read_csv('Data/WyScout/WyScout.csv')
-
-df = load_model()
 #############################################################################################################################################################
 @st.cache
 def load_model():
-	  return pd.read_csv('Data/opta/optaData.csv')
+    
+    df = pd.read_csv('Data/WyScout/WyScout.csv')
+    return df
 
-eventsPlayers =  load_model()
+df = load_model()
 
+#############################################################################################################################################################
+
+@st.cache
+def data():
+    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+    return eventsPlayers
+
+eventsPlayers = data()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS

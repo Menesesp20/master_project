@@ -39,10 +39,12 @@ plt.rcParams['font.sans-serif'] = prop.get_name()
 import streamlit as st
 
 @st.cache
-def load_model():
-	  return pd.read_csv('Data/opta/optaData.csv')
+def data():
+    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+    return eventsPlayers
 
-df = load_model()
+df = data()
+df['isTouch'] = df['isTouch'].astype(bool)
 # DICTIONARY OF COLORS
 
 clubColors = {'Atlético Madrid' : ['#e23829', '#262e62'],

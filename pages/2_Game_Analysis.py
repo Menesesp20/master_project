@@ -330,6 +330,6 @@ elif graphsFlows_choice == 'Passing Network':
     
     matchDay_choice = third.selectbox('Choose MatchDay:', matchWeek)
 
-    fig = fc.passing_networkWhoScored(teams_choice, matchDay_choice, afterSub=None)
+    fig = fc.passing_networkWhoScored(teams_choice, league_choice, matchDay_choice, afterSub=None)
 
     st.pyplot(fig)

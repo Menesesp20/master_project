@@ -1023,6 +1023,9 @@ def touch_Map(club, gameID, Player=None):
 
         # Plotting the pitch
 
+        league = player_df.Comp.unique()
+        league = league[0]
+        
         fig, ax = plt.subplots(figsize=(6,4))
 
         pitch = Pitch(pitch_type='opta',
@@ -1092,7 +1095,7 @@ def touch_Map(club, gameID, Player=None):
         #############################################################################################################################################
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.08, bottom=0.89, width=0.2, height=0.08)
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.08, bottom=0.89, width=0.2, height=0.08)
 
         fig_text(s = 'Attacking Direction',
                         x = 0.5, y = 0.08,
@@ -1123,6 +1126,9 @@ def heatMap_xT(club, gameDay, player=None):
         else:
                 xTheatMap = xTDF.loc[(xTDF['name'] == player) & (xTDF['Match_ID'] == gameDay)]
 
+        league = xTheatMap.Comp.unique()
+        league = league[0]
+
         fig, ax = plt.subplots(figsize=(6,4))
 
         pitch = Pitch(pitch_type='opta',
@@ -1141,7 +1147,7 @@ def heatMap_xT(club, gameDay, player=None):
         pitch.heatmap(bs, edgecolors='#E8E8E8', ax=ax, cmap=pearl_earring_cmap)
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.05, bottom=0.89, width=0.2, height=0.08)
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.05, bottom=0.89, width=0.2, height=0.08)
 
         highlight_textprops =\
         [{"color": color[0], "fontweight": 'bold'}]
@@ -1216,7 +1222,7 @@ def heatMapChances(team, data, player=None):
                     ha='center',fontsize=5, color='#181818', alpha=0.4);
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.25, bottom=0.885, width=0.08, height=0.07)
+        fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.25, bottom=0.885, width=0.08, height=0.07)
 
         # Opportunity
         opportunity = df.loc[(df['location.x'] >= 50) & (df['team.name'] == team) & (df['type.secondary'].apply(lambda x: 'opportunity' in x))].reset_index(drop=True)
@@ -1276,11 +1282,14 @@ def heatMapChances(team, data, player=None):
                     x = 0.53, y = 0.9, fontweight='bold',
                     ha='center',fontsize=5, color='#181818', alpha=0.4);
 
+        league = player_df.Comp.unique()
+        league = league[0]
+
         #fig_text(s = 'Coach: Jorge Jesus',
         #         x = 0.29, y = 0.862, color='#181818', fontweight='bold', ha='center', alpha=0.8, fontsize=6);
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.15, bottom=0.90, width=0.08, height=0.07)
+        fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.15, bottom=0.90, width=0.08, height=0.07)
 
         # Opportunity
         opportunity = player_df.loc[(player_df['x'] >= 50) & (player_df['team'] == team) & (player_df['qualifiers'].str.contains('KeyPass') == True)].reset_index(drop=True)
@@ -1326,6 +1335,9 @@ def passing_networkWhoScored(team, gameDay, afterSub=None):
             
         elif gameDay == 'All Season':
             network = data.loc[(data['team'] == team)].reset_index(drop=True)
+
+        league = network.Comp.unique()
+        league = league[0]
             
         network = network.sort_values(['matchTimestamp'], ascending=True)
 
@@ -1621,7 +1633,7 @@ def passing_networkWhoScored(team, gameDay, afterSub=None):
                  fontsize=5);
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.383, bottom=0.898, width=0.04, height=0.05)
+        fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.383, bottom=0.898, width=0.04, height=0.05)
         
         plt.savefig('assets/passingNetwork' + team + '.png', dpi=300)
         
@@ -1637,7 +1649,10 @@ def highTurnovers(club, gameDay, data, player=None):
             dataDF = df.loc[df.Match_ID == gameDay].reset_index(drop=True)
         else:
             dataDF = df.loc[df.name == player].reset_index(drop=True)
-            
+
+        league = dataDF.Comp.unique()
+        league = league[0]
+
         #Plotting the pitch
         highTurnover = dataDF.loc[(dataDF['typedisplayName'] == 'BallRecovery') & (dataDF.y >= 65) & (dataDF.team == club)].reset_index(drop=True)
         highTurnover.drop_duplicates(['name', 'typedisplayName', 'x', 'y'], keep='first')
@@ -1681,11 +1696,11 @@ def highTurnovers(club, gameDay, data, player=None):
             text.set_color('#181818')
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.15, bottom=0.895, width=0.2, height=0.09)
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.15, bottom=0.895, width=0.2, height=0.09)
 
         if player != None:
             # Player Image
-            fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '/' + player + '.png', fig=fig, left=0.15, bottom=0.846, width=0.08, height=0.06)
+            fig = add_image(image='Images/Clubs/' + league + '/' + club + '/' + player + '.png', fig=fig, left=0.15, bottom=0.846, width=0.08, height=0.06)
         
         add_image(image='Images/WorldCup_Qatar.png', fig=fig, left=0.75, bottom=0.895, width=0.08, height=0.1)
         
@@ -1726,6 +1741,9 @@ def draw_heatmap_construcao(club, data, player=None):
 
     bs = pitch.bin_statistic(passesGk['x'], passesGk['y'], bins=(12, 8))
 
+  league = passesGk.Comp.unique()
+  league = league[0]
+
   pitch.heatmap(bs, edgecolors='#e8e8e8', ax=ax, cmap=pearl_earring_cmap)
 
   fig_text(s = "How do they come out playing",
@@ -1741,7 +1759,7 @@ def draw_heatmap_construcao(club, data, player=None):
   #        color='#181818', ha='center', alpha=0.8, fontsize=14);
 
   # Club Logo
-  fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.05, bottom=0.89, width=0.15, height=0.1)
+  fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.05, bottom=0.89, width=0.15, height=0.1)
 
   fig_text(s = 'Attacking Direction',
            x = 0.5, y = 0.1,
@@ -1771,9 +1789,6 @@ def defensiveCover(club, data, player=None):
                                 line_zorder=3, linewidth=0.5, spot_scale=0.00)
 
         pitch.draw(ax=ax)
-
-        # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.35, bottom=0.9, width=0.08, height=0.08)
 
         # TITLE
         fig_text(s =  club,
@@ -1833,6 +1848,12 @@ def defensiveCover(club, data, player=None):
                 pitch.label_heatmap(bs, color='#E8E8E8', fontsize=8,
                                         ax=ax, ha='center', va='center',
                                         str_format='{:.0%}', path_effects=path_eff)
+
+        league = defensiveCover_list.Comp.unique()
+        league = league[0]
+
+        # Club Logo
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.35, bottom=0.9, width=0.08, height=0.08)
                 
         plt.savefig('assets/defensiveCover' + club + '.png', dpi=300)
         
@@ -1840,7 +1861,7 @@ def defensiveCover(club, data, player=None):
 
 ################################################################################################################################################
 
-def dashboardDeffensive(club, matchDay, playerName, data):
+def dashboardDeffensive(club, matchDay, playerName, league, data):
         
         if data == 'WyScout':
                 color = ['#041ca3', '#181818']
@@ -1860,7 +1881,7 @@ def dashboardDeffensive(club, matchDay, playerName, data):
                 {"color": color[0],"fontweight": 'bold'}]
 
                 # Club Logo
-                fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.08, bottom=0.98, width=0.2, height=0.1)
+                fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.08, bottom=0.98, width=0.2, height=0.1)
 
                 fig.set_facecolor('#E8E8E8')
 
@@ -2050,7 +2071,7 @@ def dashboardDeffensive(club, matchDay, playerName, data):
                 {"color": color[0],"fontweight": 'bold'}]
 
                 # Club Logo
-                fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.05, bottom=0.85, width=0.16, height=0.1)
+                fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.05, bottom=0.85, width=0.16, height=0.1)
 
                 fig.set_facecolor('#E8E8E8')
 
@@ -2248,7 +2269,7 @@ def dashboardDeffensive(club, matchDay, playerName, data):
 
 ################################################################################################################################################
 
-def dashboardOffensive(club, playerName, matchDay, data):
+def dashboardOffensive(club, playerName, matchDay, league, data):
 
         color = clubColors.get(club)
 
@@ -2268,7 +2289,7 @@ def dashboardOffensive(club, playerName, matchDay, data):
         {"color": color[0],"fontweight": 'bold'}]
 
         # Club Logo
-        add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.05, bottom=0.85, width=0.16, height=0.1)
+        add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.05, bottom=0.85, width=0.16, height=0.1)
 
         fig.set_facecolor('#E8E8E8')
 
@@ -2732,7 +2753,7 @@ def horizontalBar(data, col_player, col, x=None):
 
 ################################################################################################################################################
 
-def plotDasboardZone14(team, data):
+def plotDasboardZone14(team, league, data):
     
     if data == 'WyScout':
         zone14 = df.loc[(df['type.primary'] == 'pass') & (df['location.x'] >= 70) & (df['location.x'] <= 83) & (df['location.y'] >= 36) & (df['location.y'] <= 63.5)].reset_index(drop=True)
@@ -2785,7 +2806,7 @@ def plotDasboardZone14(team, data):
     #################################################################################################################################################
 
     # Club Logo
-    add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.12, bottom=0.825, width=0.2, height=0.1)
+    add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.12, bottom=0.825, width=0.2, height=0.1)
 
     fig_text(s = 'The master at finding space in Zone 14',
                 x = 0.5, y = 0.88,
@@ -2809,7 +2830,7 @@ def plotDasboardZone14(team, data):
 
 ################################################################################################################################################
 
-def defensiveLine(team, data):
+def defensiveLine(team, league, data):
 
     if data == 'WyScout':
         # Defensive Actions
@@ -2843,7 +2864,7 @@ def defensiveLine(team, data):
         plt.axhspan(defensiveActions['location.x'].mean(), -50, facecolor='#ff0000', alpha=0.4)
         
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.345, bottom=0.885, width=0.08, height=0.05)
+        fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.345, bottom=0.885, width=0.08, height=0.05)
     
     elif data == 'WhoScored':
         # Defensive Actions
@@ -2878,7 +2899,7 @@ def defensiveLine(team, data):
         plt.axhspan(defensiveActions['x'].mean(), -50, facecolor='#ff0000', alpha=0.4)
         
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.345, bottom=0.85, width=0.05, height=0.05)
+        fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.345, bottom=0.85, width=0.05, height=0.05)
         
         plt.savefig('assets/defensiveLine' + team + '.png', dpi=300)
         
@@ -2886,7 +2907,7 @@ def defensiveLine(team, data):
 
 ################################################################################################################################################
 
-def xT_Flow(club, gameDay, data):
+def xT_Flow(club, gameDay, league, data):
 
     df_XT = df.loc[(df['outcomeTypedisplayName'] == 'Successful') & (df['Match_ID'] == gameDay)].reset_index(drop=True)
 
@@ -2973,7 +2994,7 @@ def xT_Flow(club, gameDay, data):
     mpl.rcParams["axes.labelweight"] = "bold"
 
     # Club Logo
-    fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.12, bottom=0.905, width=0.08, height=0.09)
+    fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.12, bottom=0.905, width=0.08, height=0.09)
     
     plt.savefig('assets/xTFlow' + club + '.png', dpi=300)
     
@@ -2981,7 +3002,7 @@ def xT_Flow(club, gameDay, data):
 
 ################################################################################################################################################
 
-def touch_Flow(club):
+def touch_Flow(club, league):
 
     color = clubColors.get(club)
 
@@ -3071,7 +3092,7 @@ def touch_Flow(club):
     mpl.rcParams["axes.labelweight"] = "bold"
 
     # Club Logo
-    fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.08, bottom=0.925, width=0.2, height=0.1)
+    fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.08, bottom=0.925, width=0.2, height=0.1)
     
     plt.savefig('assets/TouchFlow' + club + '.png', dpi=300)
     
@@ -3189,7 +3210,7 @@ def territory_dominance(gameDay, teamName):
 
 ################################################################################################################################################
 
-def GoalKick(club, data):
+def GoalKick(club, league, data):
 
         if data == 'WyScout':
                 #################################################################################################################################################
@@ -3265,7 +3286,7 @@ def GoalKick(club, data):
                         color='#fb8c04', fontweight='bold', ha='center' ,fontsize=12);
 
                 # Club Logo
-                fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.1, bottom=0.865, width=0.2, height=0.1)
+                fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.1, bottom=0.865, width=0.2, height=0.1)
 
                 fig_text(s = 'Attacking Direction',
                                 x = 0.5, y = 0.17,
@@ -3351,7 +3372,7 @@ def GoalKick(club, data):
                         color='#fb8c04', fontweight='bold', ha='center' ,fontsize=5);
 
                 # Club Logo
-                fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.1, bottom=0.85, width=0.05, height=0.1)
+                fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.1, bottom=0.85, width=0.05, height=0.1)
 
                 fig_text(s = 'Attacking Direction',
                                 x = 0.5, y = 0.17,
@@ -3369,7 +3390,7 @@ def GoalKick(club, data):
 
 ################################################################################################################################################
 
-def counterPressMap(team, data, player=None):
+def counterPressMap(team, league, data, player=None):
 
     # Plotting the pitch
     fig, ax = plt.subplots(figsize=(6,4))
@@ -3391,7 +3412,7 @@ def counterPressMap(team, data, player=None):
                 ha='center',fontsize=8, color='#181818', alpha=0.4);
 
     # Club Logo
-    fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.32, bottom=0.85, width=0.05, height=0.07)
+    fig = add_image(image='Images/Clubs/' + league + team + '.png', fig=fig, left=0.32, bottom=0.85, width=0.05, height=0.07)
     
     if data == 'WyScout':
         # Counter Press DataFrame
@@ -3444,7 +3465,7 @@ def counterPressMap(team, data, player=None):
 
 ################################################################################################################################################
 
-def through_passMap(gameID, club, data, playerName=None):
+def through_passMap(gameID, club, league, data, playerName=None):
 
         color = ['#FF0000', '#181818']
 
@@ -3658,7 +3679,7 @@ def through_passMap(gameID, club, data, playerName=None):
         
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.08, bottom=0.87, width=0.2, height=0.08)
+        fig = add_image(image='Images/Clubs/' + league + club + '.png', fig=fig, left=0.08, bottom=0.87, width=0.2, height=0.08)
 
         fig_text(s = 'Attacking Direction',
                         x = 0.5, y = 0.17,
@@ -3676,7 +3697,7 @@ def through_passMap(gameID, club, data, playerName=None):
 
 ################################################################################################################################################
 
-def ShotMap(team, playerName=None):
+def ShotMap(team, league, playerName=None):
 
   dfGoal = df.loc[(df['shot.isGoal'] == True) | (df['shot.isGoal'] == False)].reset_index(drop=True)
 
@@ -3893,7 +3914,7 @@ def ShotMap(team, playerName=None):
             color='#181818', fontweight='bold', ha='center', va='center',fontsize=18);
 
   # Club Logo
-  fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.12, bottom=0.885, width=0.2, height=0.08)
+  fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.12, bottom=0.885, width=0.2, height=0.08)
   
   plt.savefig('assets/shotMap' + team + '.png', dpi=300)
 
@@ -3901,7 +3922,7 @@ def ShotMap(team, playerName=None):
 
 ################################################################################################################################################
 
-def halfspaces_Zone14(club):
+def halfspaces_Zone14(club, league):
 
     Game = df.loc[(df['name'] == club) & (df['typedisplayName'] == 'Pass')]
 
@@ -3982,7 +4003,7 @@ def halfspaces_Zone14(club):
     ###################################################################################################################################
 
     # Club Logo
-    fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.24, bottom=0.85, width=0.05, height=0.1)
+    fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.24, bottom=0.85, width=0.05, height=0.1)
 
     plt.savefig('assets/halfSpace' + club + '.png', dpi=300)
 
@@ -3990,7 +4011,7 @@ def halfspaces_Zone14(club):
 
 ################################################################################################################################################
 
-def finalThird(club, matchDay, data):
+def finalThird(club, matchDay, league, data):
 
         if data == 'WyScout':
                 if matchDay != 'All Season':
@@ -4576,7 +4597,7 @@ def finalThird(club, matchDay, data):
         #         color='#181818', fontweight='bold', ha='center', alpha=0.8, fontsize=12);
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.07, bottom=0.85, width=0.05, height=0.1)
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.07, bottom=0.85, width=0.05, height=0.1)
 
         # END NOTE
         fig_text(s = 'The values inside the diamond are the xT value for each third',
@@ -4593,7 +4614,7 @@ def finalThird(club, matchDay, data):
 
 ################################################################################################################################################
 
-def cornersTaken(club, data):
+def cornersTaken(club, league, data):
 
         if 'level_0' in df.columns:
                 df.drop(['level_0'], axis=1, inplace=True)
@@ -4742,7 +4763,7 @@ def cornersTaken(club, data):
         #################################################################################################################################################
 
         # Club Logo - WITH ANGLES BOTTOM: 0.89, LEFT:0.14
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.08, bottom=0.85, width=0.05, height=0.1)
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.08, bottom=0.85, width=0.05, height=0.1)
 
         #################################################################################################################################################
 
@@ -4774,7 +4795,7 @@ def cornersTaken(club, data):
 
 ################################################################################################################################################
 
-def corners1stPostTaken(club):
+def corners1stPostTaken(club, league):
         
         if 'level_0' in df.columns:
                 df.drop(['level_0'], axis=1, inplace=True)
@@ -4927,7 +4948,7 @@ def corners1stPostTaken(club):
         #################################################################################################################################################
 
         # Club Logo - WITH ANGLES BOTTOM: 0.89, LEFT:0.14
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.12, bottom=0.85, width=0.05, height=0.1)
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.12, bottom=0.85, width=0.05, height=0.1)
 
         #################################################################################################################################################
 
@@ -4959,7 +4980,7 @@ def corners1stPostTaken(club):
 
 ################################################################################################################################################
 
-def corners2ndPostTaken(club):
+def corners2ndPostTaken(club, league):
         
         if 'level_0' in df.columns:
                 df.drop(['level_0'], axis=1, inplace=True)
@@ -5115,7 +5136,7 @@ def corners2ndPostTaken(club):
         #################################################################################################################################################
 
         # Club Logo - WITH ANGLES BOTTOM: 0.89, LEFT:0.14
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.12, bottom=0.87, width=0.2, height=0.1)
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.12, bottom=0.87, width=0.2, height=0.1)
 
         #################################################################################################################################################
 
@@ -5146,7 +5167,7 @@ def corners2ndPostTaken(club):
         return plt.show()
 ################################################################################################################################################
 
-def SetPiece_throwIn(club, match=None):
+def SetPiece_throwIn(club, league, match=None):
 
         if 'level_0' in df.columns:
                 df.drop(['level_0'], axis=1, inplace=True)
@@ -5374,7 +5395,7 @@ def SetPiece_throwIn(club, match=None):
         #ax.scatter( 50 , 72 , marker = 'p', s = 12000, color='#181818', alpha=0.8, lw=3)
 
         # Club Logo - WITH ANGLES BOTTOM: 0.89, LEFT:0.14
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig, left=0.23, bottom=0.85, width=0.05, height=0.07)
+        fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.23, bottom=0.85, width=0.05, height=0.07)
 
         plt.savefig('assets/throwIn' + club + '.png', dpi=300)
 
@@ -5382,7 +5403,7 @@ def SetPiece_throwIn(club, match=None):
 
 ################################################################################################################################################
 
-def field_Tilt(club, gameDay):
+def field_Tilt(club, league, gameDay):
 
     if gameDay == 'All Season':
         touch = df.loc[(df.team == club) & (df['typedisplayName'] == 'Pass') & (df['outcomeTypedisplayName'] == 'Successful') & (df['x'] >=75)].reset_index(drop=True)
@@ -5581,7 +5602,7 @@ def field_Tilt(club, gameDay):
     #############################################################################################################################################
     
     # Club Logo
-    fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + club + '.png', fig=fig,
+    fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig,
                     left=0.06, bottom=0.88, width=0.05, height=0.09)
 
     plt.savefig('assets/fieldTilt' + club + '.png', dpi=300)
@@ -5590,7 +5611,7 @@ def field_Tilt(club, gameDay):
 
 ################################################################################################################################################
 
-def profilePlayer():
+def profilePlayer(league):
         
         fig, ax = plt.subplots(figsize=(15, 10))
 
@@ -5603,7 +5624,7 @@ def profilePlayer():
         fig.set_facecolor('#E8E8E8')
 
         # Club Logo
-        fig = add_image(image='Images/Clubs/' + 'Mundial' + '/' + 'Portugal' + '.png', fig=fig,
+        fig = add_image(image='Images/Clubs/' + league + '/' + 'Portugal' + '.png', fig=fig,
                         left=0.1, bottom=0.88, width=0.2, height=0.09)
 
         plt.savefig('assets/profile.png', dpi=300)
@@ -5612,7 +5633,7 @@ def profilePlayer():
 
 ################################################################################################################################################
 
-def possessionGained(team, eventType):
+def possessionGained(team, league, eventType):
     fig, ax = plt.subplots(figsize=(6, 4))
 
     pitch = Pitch(pitch_type='opta',
@@ -5697,7 +5718,7 @@ def possessionGained(team, eventType):
                     ha='center', va='center',
                     fontsize=5)
 
-    add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.25, bottom=0.905, width=0.08, height=0.09)
+    add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.25, bottom=0.905, width=0.08, height=0.09)
     
     add_image(image='Images/WorldCup_Qatar.png', fig=fig, left=0.7, bottom=0.9, width=0.08, height=0.1)
 

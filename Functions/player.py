@@ -764,7 +764,7 @@ def dashboardTerritory(df, league, club, matchDay, playerName, playerName2, play
 
                 fig.set_facecolor('#181818')
 
-                fig_text(s =f'<{homeTeam}>' + ' ' +  'front attack against' + ' ' + opponent,
+                fig_text(s =f'<{homeTeam}>' + ' ' +  'front attack against' + ' ' + f'<{opponent}>',
                         x = 0.53, y = 1.03, highlight_textprops = highlight_textprops, color='white', fontweight='bold', ha='center' ,fontsize=28);
                             
                 if matchDay != 'All Season':

@@ -37,7 +37,8 @@ import streamlit as st
 
 @st.cache
 def load_model():
-	  return pd.read_csv('Data/WyScout/WyScout.csv')
+    df = pd.read_csv('Data/WyScout/WyScout.csv')
+    return df
 
 df = load_model()
 
@@ -49,7 +50,8 @@ df.drop([ 'Team within selected timeframe', 'On loan'], axis=1, inplace=True)
 
 @st.cache
 def load_model():
-	  return pd.read_csv('Data/opta/optaData.csv')
+    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+    return eventsPlayers
 
 eventsPlayers = load_model()
 

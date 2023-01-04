@@ -96,18 +96,16 @@ from Functions import corners, throw
 
 #############################################################################################################################################################
 
-def search_qualifierOPTA(df, list_Name, event):
-  cols = ['Match_ID', 'name', 'x', 'y',
-          'endX', 'endY', 'minute', 'second', 'typedisplayName', 'outcomeTypedisplayName',
-          'qualifiers', 'satisfiedEventsTypes', 'teamId', 'team']
+def search_qualifierOPTA(data, list_Name, event):
+  cols = data.columns
 
   list_Name = pd.DataFrame(columns=cols)
 
-  df.reset_index(inplace=True)
+  data.reset_index(inplace=True)
 
-  for idx, row in df.iterrows():
-    if event in df['qualifiers'][idx]:
-        events = pd.DataFrame([df.iloc[idx][cols].values], columns=cols)
+  for idx, row in data.iterrows():
+    if event in data['qualifiers'][idx]:
+        events = pd.DataFrame([data.iloc[idx][cols].values], columns=cols)
         list_Name = pd.concat([list_Name, events], ignore_index=True)
           
   list_Name = list_Name.loc[~list_Name.index.duplicated(), :]

@@ -1022,7 +1022,7 @@ def touch_Map(club, league, gameID, Player=None):
                 player_df = df.loc[(df['Match_ID'] == gameID)]
 
         # Plotting the pitch
-        fig, ax = plt.subplots(figsize=(10, 15), dpi=300)
+        fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
 
         pitch = Pitch(pitch_type='opta',
                       pitch_color='#E8E8E8', line_color='#181818',
@@ -1041,7 +1041,7 @@ def touch_Map(club, league, gameID, Player=None):
         if (Player == None) & (gameID != 'All Season'):
                 fig_text(s =f'<{club}>' + ' ' + 'Touch Map',
                         x = 0.5, y = 0.91, highlight_textprops = highlight_textprops,
-                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=48);
+                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=25);
                 
                 fig_text(s ='MatchDay:' + str(gameID) + ' ' +  '| Season 21-22 | @menesesp20',
                         x = 0.5, y = 0.85, color='#181818', fontweight='bold', ha='center', va='center', fontsize=16, alpha=0.7);
@@ -1049,7 +1049,7 @@ def touch_Map(club, league, gameID, Player=None):
         elif (Player == None) & (gameID == 'All Season'):
                 fig_text(s =f'<{club}>' + ' ' + 'Touch Map',
                         x = 0.5, y = 0.91, highlight_textprops = highlight_textprops,
-                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=48);
+                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=25);
                 
                 fig_text(s ='All Season' + ' ' +  '| Season 21-22 | @menesesp20',
                         x = 0.5, y = 0.85, color='#181818', fontweight='bold', ha='center', va='center', fontsize=16, alpha=0.7);
@@ -1057,7 +1057,7 @@ def touch_Map(club, league, gameID, Player=None):
         if (Player != None) & (gameID != 'All Season'):
                 fig_text(s =f'<{Player}>' + ' ' + 'Touch Map',
                         x = 0.5, y = 0.93, highlight_textprops = highlight_textprops,
-                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=16);
+                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=8);
                 
                 fig_text(s ='MatchDay:' + str(gameID) + ' ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.88, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
@@ -1065,7 +1065,7 @@ def touch_Map(club, league, gameID, Player=None):
         elif (Player != None) & (gameID == 'All Season'):
                 fig_text(s =f'<{Player}>' + ' ' + 'Touch Map',
                         x = 0.5, y = 0.93, highlight_textprops = highlight_textprops,
-                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=16);
+                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=8);
                 
                 fig_text(s ='All Season ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.88, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
@@ -1120,7 +1120,7 @@ def heatMap_xT(club, league, gameDay, player=None):
         else:
                 xTheatMap = xTDF.loc[(xTDF['name'] == player) & (xTDF['Match_ID'] == gameDay)]
 
-        fig, ax = plt.subplots(figsize=(10, 15), dpi=300)
+        fig, ax = plt.subplots(figsize=(6,4))
 
         pitch = Pitch(pitch_type='opta',
                       pitch_color='#E8E8E8', line_color='#181818',

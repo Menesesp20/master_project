@@ -24,10 +24,6 @@ from scipy import stats
 
 import math
 
-from pandas.core.common import SettingWithCopyWarning
-
-import warnings
-warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
 
 #############################################################################################################################################################
 
@@ -44,6 +40,7 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 #############################################################################################################################################################
+import streamlit as st
 from Functions import data as d
 
 #############################################################################################################################################################

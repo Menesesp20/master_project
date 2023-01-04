@@ -55,8 +55,6 @@ import abs_import
 import statistics
 import math
 
-from IPython.display import display, Math, Latex
-
 import warnings
 
 plt.rcParams["figure.dpi"] = 300

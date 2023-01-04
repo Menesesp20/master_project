@@ -1107,8 +1107,6 @@ def touch_Map(club, gameID, Player=None):
         ax.annotate('', xy=(0.3, -0.07), xycoords='axes fraction', xytext=(0.7, -0.07), 
                 arrowprops=dict(arrowstyle="<-", color='#181818', lw=2))
         
-        ('assets/touchMap' + Player + '.png', dpi=300)
-        
         return plt.show()
 
 ################################################################################################################################################
@@ -1185,15 +1183,7 @@ def heatMap_xT(club, gameDay, player=None):
         ax.annotate('', xy=(0.3, -0.07), xycoords='axes fraction', xytext=(0.7, -0.07), 
                 arrowprops=dict(arrowstyle="<-", color='#181818', lw=2))
         
-        if player != None:
-            ('assets/xTMap' + player + '.png', dpi=300)
-            
-            return plt.show()
-        
-        else:
-            ('assets/xTMap' + club + '.png', dpi=300)
-            
-            return plt.show()
+        return plt.show()
 
 ################################################################################################################################################
 
@@ -1310,8 +1300,6 @@ def heatMapChances(team, data, player=None):
         pitch.label_heatmap(bs, color='#E8E8E8', fontsize=11,
                                     ax=ax, ha='center', va='center',
                                     str_format='{:.0%}', path_effects=path_eff)
-        
-        ('assets/chancesCreated' + team + '.png', dpi=300)
         
         return plt.show()
 
@@ -1635,8 +1623,6 @@ def passing_networkWhoScored(team, gameDay, afterSub=None):
         # Club Logo
         fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.383, bottom=0.898, width=0.04, height=0.05)
         
-        ('assets/passingNetwork' + team + '.png', dpi=300)
-        
         return plt.show()
 
 ################################################################################################################################################
@@ -1704,8 +1690,6 @@ def highTurnovers(club, gameDay, data, player=None):
         
         add_image(image='Images/WorldCup_Qatar.png', fig=fig, left=0.75, bottom=0.895, width=0.08, height=0.1)
         
-        ('assets/turnOvers' + club + '.png', dpi=300)
-        
         return plt.show()
 
 ################################################################################################################################################
@@ -1770,8 +1754,6 @@ def draw_heatmap_construcao(club, data, player=None):
   # ARROW DIRECTION OF PLAY
   ax.annotate('', xy=(0.3, -0.07), xycoords='axes fraction', xytext=(0.7, -0.07), 
             arrowprops=dict(arrowstyle="<-", color='#181818', lw=2))
-  
-  ('assets/buildUp' + club + '.png', dpi=300)
 
   return plt.show()
 
@@ -1854,8 +1836,6 @@ def defensiveCover(club, data, player=None):
 
         # Club Logo
         fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.35, bottom=0.9, width=0.08, height=0.08)
-                
-        ('assets/defensiveCover' + club + '.png', dpi=300)
         
         return plt.show()
 
@@ -2262,8 +2242,6 @@ def dashboardDeffensive(club, matchDay, playerName, league, data):
                 #Ciclo FOR para atribuir a color legend
                 for text in l.get_texts():
                         text.set_color("#181818")
-                        
-        ('assets/defensiveDashboard' + playerName + '.png', dpi=300)
         
         return plt.show()
 
@@ -2668,8 +2646,6 @@ def dashboardOffensive(club, playerName, matchDay, league, data):
                 #Ciclo FOR para atribuir a white color na legend
                 for text in l.get_texts():
                         text.set_color("#181818")
-
-        ('assets/offensiveDashboard' + playerName + '.png', dpi=300)
         
         return plt.show()
 
@@ -2824,8 +2800,6 @@ def plotDasboardZone14(team, league, data):
     
     plotZone14Passes(a2)
     
-    ('assets/dashboard14' + team + '.png', dpi=300)
-    
     return plt.show()
 
 ################################################################################################################################################
@@ -2900,8 +2874,6 @@ def defensiveLine(team, league, data):
         
         # Club Logo
         fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.345, bottom=0.85, width=0.05, height=0.05)
-        
-        ('assets/defensiveLine' + team + '.png', dpi=300)
         
         return plt.show()     
 
@@ -2995,9 +2967,7 @@ def xT_Flow(club, gameDay, league, data):
 
     # Club Logo
     fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.12, bottom=0.905, width=0.08, height=0.09)
-    
-    ('assets/xTFlow' + club + '.png', dpi=300)
-    
+
     return plt.show()   
 
 ################################################################################################################################################
@@ -3093,9 +3063,7 @@ def touch_Flow(club, league):
 
     # Club Logo
     fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.08, bottom=0.925, width=0.2, height=0.1)
-    
-    ('assets/TouchFlow' + club + '.png', dpi=300)
-    
+
     return plt.show()
 
 ################################################################################################################################################
@@ -3383,8 +3351,6 @@ def GoalKick(club, league, data):
                 # ARROW DIRECTION OF PLAY
                 ax.annotate('', xy=(0.3, -0.07), xycoords='axes fraction', xytext=(0.7, -0.07), 
                         arrowprops=dict(arrowstyle="<-", color='#181818', lw=2))
-        
-        ('assets/GoalKick' + club + '.png', dpi=300)
 
         return plt.show()
 
@@ -3458,8 +3424,6 @@ def counterPressMap(team, league, data, player=None):
         pitch.label_heatmap(bs, color='#E8E8E8', fontsize=5,
                                     ax=ax, ha='center', va='center',
                                     str_format='{:.0%}', path_effects=path_eff)
-
-        ('assets/counterPress' + team + '.png', dpi=300)
 
         return plt.show()
 
@@ -3691,8 +3655,6 @@ def through_passMap(gameID, club, league, data, playerName=None):
         ax.annotate('', xy=(0.3, -0.07), xycoords='axes fraction', xytext=(0.7, -0.07), 
                 arrowprops=dict(arrowstyle="<-", color='#181818', lw=2))
 
-        ('assets/lineBreak' + club + '.png', dpi=300)
-
         return plt.show()
 
 ################################################################################################################################################
@@ -3915,8 +3877,6 @@ def ShotMap(team, league, playerName=None):
 
   # Club Logo
   fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.12, bottom=0.885, width=0.2, height=0.08)
-  
-  ('assets/shotMap' + team + '.png', dpi=300)
 
   return plt.show()
 
@@ -4004,8 +3964,6 @@ def halfspaces_Zone14(club, league):
 
     # Club Logo
     fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.24, bottom=0.85, width=0.05, height=0.1)
-
-    ('assets/halfSpace' + club + '.png', dpi=300)
 
     return plt.show()
 
@@ -4608,8 +4566,6 @@ def finalThird(club, matchDay, league, data):
                  x = 0.765, y = 0.875,
                  color='#1b1b1b', fontweight='bold', ha='center' ,fontsize=5);
 
-        ('assets/finalThird' + club + '.png', dpi=300)
-
         return plt.show()
 
 ################################################################################################################################################
@@ -4788,8 +4744,6 @@ def cornersTaken(club, league, data):
         fig_text(s = 'The values inside pentagon are the total of corners made by each side',
                 x = 0.42, y = 0.129,
                 color='#181818', fontweight='bold', ha='center' ,fontsize=5);
-
-        ('assets/corners' + club + '.png', dpi=300)
 
         return plt.show()
 
@@ -4973,8 +4927,6 @@ def corners1stPostTaken(club, league):
         fig_text(s = 'The values inside pentagon are the percentage of corners made by each side for the circle area',
                 x = 0.407, y = 0.14,
                 color='white', fontweight='bold', ha='center' ,fontsize=5);
-
-        ('assets/corners1st' + club + '.png', dpi=300)
 
         return plt.show()
 
@@ -5161,8 +5113,6 @@ def corners2ndPostTaken(club, league):
         fig_text(s = 'The values inside pentagon are the percentage of corners made by each side for the circle area',
                 x = 0.407, y = 0.129,
                 color='white', fontweight='bold', ha='center' ,fontsize=12);
-
-        ('assets/corners2nd' + club + '.png', dpi=300)
 
         return plt.show()
 ################################################################################################################################################
@@ -5396,9 +5346,7 @@ def SetPiece_throwIn(club, league, match=None):
 
         # Club Logo - WITH ANGLES BOTTOM: 0.89, LEFT:0.14
         fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.23, bottom=0.85, width=0.05, height=0.07)
-
-        ('assets/throwIn' + club + '.png', dpi=300)
-
+        
         return plt.show()
 
 ################################################################################################################################################
@@ -5605,8 +5553,6 @@ def field_Tilt(club, league, gameDay):
     fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig,
                     left=0.06, bottom=0.88, width=0.05, height=0.09)
 
-    ('assets/fieldTilt' + club + '.png', dpi=300)
-
     return plt.show()
 
 ################################################################################################################################################
@@ -5626,8 +5572,6 @@ def profilePlayer(league):
         # Club Logo
         fig = add_image(image='Images/Clubs/' + league + '/' + 'Portugal' + '.png', fig=fig,
                         left=0.1, bottom=0.88, width=0.2, height=0.09)
-
-        ('assets/profile.png', dpi=300)
 
         return plt.show()
 
@@ -5721,8 +5665,6 @@ def possessionGained(team, league, eventType):
     add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.25, bottom=0.905, width=0.08, height=0.09)
     
     add_image(image='Images/WorldCup_Qatar.png', fig=fig, left=0.7, bottom=0.9, width=0.08, height=0.1)
-
-    ('assets/possessionGained' + team + '.png', dpi=300)
 
     return plt.show()
 
@@ -7831,8 +7773,6 @@ def radar_chartPhysical(physical, player, cols):
 
   fig.set_facecolor('#E8E8E8')
 
-  ('assets/radarPhysical' + player + '.png', dpi=300)
-
   return plt.show()
 
 ################################################################################################################################################
@@ -7910,8 +7850,6 @@ def radar_chart(player, cols):
   add_image('Images/WorldCup_Qatar.png', fig, left=0.68, bottom=0.83, width=0.1, height=0.12)
 
   fig.set_facecolor('#E8E8E8')
-
-  ('assets/radarChart' + player + '.png', dpi=300)
 
   return plt.show()
 
@@ -8041,8 +7979,6 @@ def PizzaChartPhysical(physical, playerName, cols):
 
     # add image
     add_image('Images/WorldCup_Qatar.png', fig, left=0.475, bottom=0.452, width=0.075, height=0.105)
-
-    ('assets/pizzaPhysical' + playerName + '.png', dpi=300)
 
     return plt.show()
 
@@ -8178,8 +8114,6 @@ def pizza_ComparePhysical(physical, playerName, playerName2, cols):
 
     # add image
     add_image('Images/WorldCup_Qatar.png', fig, left=0.475, bottom=0.452, width=0.075, height=0.105)
-
-    ('assets/pizzaComparePhysical' + playerName + '.png', dpi=300)
 
     return plt.show()
 
@@ -10601,9 +10535,6 @@ def scoutReport(playerName, team, setPieces, isDefensive, tier):
     #fig = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + league + '/' + club + '/' + playerName + '.png', fig=fig, left=0.12, bottom=0.78, width=0.1, height=0.23)
 
     #fig = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Country/' + country + '.png', fig=fig, left=0.23, bottom=0.775, width=0.1, height=0.07)
-
-
-    ('assets/scoutReport' + playerName + '.png', dpi=300)
 
     return plt.show()
 ################################################################################################################################################

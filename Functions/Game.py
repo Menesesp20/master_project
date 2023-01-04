@@ -7177,7 +7177,7 @@ def evaluation(df, league, club, playerName, role):
     plt.ylabel('menesesp20 VALUE', color='#181818', size=11)
     plt.xlabel('SEASON', color='#181818', size=11)
 
-    fig = add_image(image='
+    fig = add_image(image='Images/Players/' + league + '/' + club + '/' + playerName + '.png', fig=fig, left=0.12, bottom=0.93, width=0.12, height=0.11)
 
     plt.show()
 
@@ -7578,7 +7578,7 @@ def PizzaChart(df, cols, playerName, league):
     ])
 
     # add image
-    add_image('ght=0.132)
+    add_image('Images/SWL LOGO.png', fig, left=0.462, bottom=0.436, width=0.10, height=0.132)
 
 ################################################################################################################################################
 
@@ -10548,9 +10548,9 @@ def scoutReport(playerName, team, setPieces, isDefensive, tier):
                 size=100,
                 color='#ff0000')
 
-    #fig = add_image(image='Images/Players/' + league + '/' + club + '/' + playerName + '.png', fig=fig, left=0.12, bottom=0.78, width=0.1, height=0.23)
+    #fig = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + league + '/' + club + '/' + playerName + '.png', fig=fig, left=0.12, bottom=0.78, width=0.1, height=0.23)
 
-    #fig = add_image(image='Images/Country/' + country + '.png', fig=fig, left=0.23, bottom=0.775, width=0.1, height=0.07)
+    #fig = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Country/' + country + '.png', fig=fig, left=0.23, bottom=0.775, width=0.1, height=0.07)
 
 
     plt.savefig('assets/scoutReport' + playerName + '.png', dpi=300)
@@ -11083,9 +11083,9 @@ def pathColumn(tableData):
         for idx, row in tableData.iterrows():
                 if ', ' in tableData.loc[idx, 'Passport country']:
                         tableData.loc[idx, 'Passport country'] = tableData.loc[idx, 'Passport country'].split(', ')[0]
-                        flag.append('Country/' + tableData.loc[idx, 'Passport country'] + '.png')
+                        flag.append('C:/Users/menes/Documents/Data Hub/Country/' + tableData.loc[idx, 'Passport country'] + '.png')
                 else:
-                        flag.append('Country/' + tableData.loc[idx, 'Passport country'] + '.png')
+                        flag.append('C:/Users/menes/Documents/Data Hub/Country/' + tableData.loc[idx, 'Passport country'] + '.png')
         
         return flag
 

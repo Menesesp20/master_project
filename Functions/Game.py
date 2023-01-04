@@ -1305,7 +1305,7 @@ def heatMapChances(team, data, player=None):
 
 ################################################################################################################################################
 
-def passing_networkWhoScored(team, gameDay, afterSub=None):
+def passing_networkWhoScored(team, league, gameDay, afterSub=None):
 
         if gameDay != 'All Season':
             dataDF = df.loc[df.Match_ID == gameDay].reset_index(drop=True)
@@ -1323,9 +1323,6 @@ def passing_networkWhoScored(team, gameDay, afterSub=None):
             
         elif gameDay == 'All Season':
             network = data.loc[(data['team'] == team)].reset_index(drop=True)
-
-        league = network.Comp.unique()
-        league = league[0]
             
         network = network.sort_values(['matchTimestamp'], ascending=True)
 

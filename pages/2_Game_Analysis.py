@@ -49,6 +49,7 @@ def load_model():
 	  return pd.read_csv('Data/opta/optaData.csv')
 
 eventsPlayers = load_model()
+print(eventsPlayers)
 
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 

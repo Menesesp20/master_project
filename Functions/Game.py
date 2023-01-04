@@ -54,7 +54,6 @@ import abs_import
 
 import statistics
 import math
-import ipywidgets as widgets
 
 from IPython.display import display, Math, Latex
 

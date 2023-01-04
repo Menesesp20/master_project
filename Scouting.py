@@ -981,7 +981,7 @@ def barChart(df, playerName, league, club):
   ax.spines['left'].set_color('#1b1b1b')
   ax.spines['right'].set_visible(False)
 
-  fig.text(0.01,0.08,'Made by Pedro Meneses/@menesesp20.', color='white', size=12, weight='bold')
+  fig.text(0.01,0.08,'Made by Pedro Meneses/@menesesp20.', color='#181818', size=12, weight='bold')
 
 
 def PCA10(df, playerName, role):

@@ -94,6 +94,7 @@ sys.path.append('whoscored_scraper')
 
 from Functions import dashboard as ds
 from Functions import player as pl
+from Functions import Game as fc
 
 #############################################################################################################################################################
     
@@ -103,7 +104,7 @@ graphs_choice = st.sidebar.selectbox('What do you want to analyze?', graphs)
 
 if graphs_choice == 'Goal kicks':
 
-    first, second, third = st.columns(3)
+    first, second = st.columns(2)
 
     leagues = eventsPlayers.League.unique()
 
@@ -121,19 +122,7 @@ if graphs_choice == 'Goal kicks':
 
     teams_choice = second.selectbox('Choose team:', teams)
 
-    matchDay = eventsPlayers.Match_ID.unique()
-
-    matchDay = matchDay.tolist()
-
-    matchDay = sorted(matchDay)
-
-    matchDay.append('All Season')
-
-    matchDay.insert(0, 'All Season')
-
-    matchDay_choice = third.selectbox('Choose MatchDay:', matchDay)
-
-    fig = ds.GoalKick(eventsPlayers, league_choice, teams_choice, 5, matchDay_choice)
+    fig = fc.GoalKick(teams_choice, league_choice, 'WhoScored')
 
     st.pyplot(fig)
 
@@ -186,98 +175,6 @@ elif graphs_choice == 'Area Covered Front Players':
 
     fig = pl.dashboardTerritory(eventsPlayers, league_choice, teams_choice, matchDay_choice, players_choice, players_choice2, players_choice3)
     
-    st.pyplot(fig)
-
-elif graphs_choice == 'Passing Network':
-
-    first, second, third = st.columns(3)
-
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
-
-    league_choice = first.selectbox('Choose league:', leagues)
-
-    clubDF = eventsPlayers.loc[eventsPlayers.League == league_choice]
-
-    teams = clubDF.team.unique()
-
-    teams = teams.tolist()
-
-    teams.remove('Athletic Club')
-
-    teams_choice = second.selectbox('Choose team:', teams)
-
-    matchDay = eventsPlayers.Match_ID.unique()
-
-    matchDay = matchDay.tolist()
-
-    matchDay = sorted(matchDay)
-
-    matchDay_choice = third.selectbox('Choose MatchDay:', matchDay)
-
-    fig = ds.dashboardPassingNetwork(eventsPlayers, matchDay_choice, league_choice, teams_choice)
-
-    st.pyplot(fig)
-
-elif graphs_choice == 'Heat Map':
-
-    first, second = st.columns(2)
-
-    teams = eventsPlayers.team.unique()
-
-    teams = teams.tolist()
-
-    teams.remove('Athletic Club')
-
-    teams_choice = first.selectbox('Choose team:', teams)
-
-    matchDay = eventsPlayers.Match_ID.unique()
-
-    matchDay = matchDay.tolist()
-
-    matchDay = sorted(matchDay)
-
-    matchDay.append('All Season')
-
-    matchDay.insert(0, 'All Season')
-
-    matchDay_choice = second.selectbox('Choose MatchDay:', matchDay)
-
-    fig = ds.touch_Map(eventsPlayers, 'Match_ID', matchDay_choice, 'x', 'y' , 'isTouch', True, 'La Liga', teams_choice)
-
-    st.pyplot(fig)
-
-elif graphs_choice == 'xT Heat Map':
-
-    st.title('Where are we creating more danger?')
-
-    first, second = st.columns(2)
-
-    teams = eventsPlayers.team.unique()
-
-    teams = teams.tolist()
-
-    teams.remove('Athletic Club')
-
-    teams_choice = first.selectbox('Choose team:', teams)
-
-    club = eventsPlayers[eventsPlayers.team == teams_choice]
-
-    matchDay = eventsPlayers.Match_ID.unique()
-
-    matchDay = matchDay.tolist()
-
-    matchDay = sorted(matchDay)
-
-    matchDay.append('All Season')
-
-    matchDay.insert(0, 'All Season')
-
-    matchDay_choice = second.selectbox('Choose MatchDay:', matchDay)
-
-    xTDF = ds.xT(eventsPlayers)
-
-    fig = ds.heatMap_xT(xTDF, 'La Liga', teams_choice, matchDay_choice)
-
     st.pyplot(fig)
 
 elif graphs_choice == 'xT Field':
@@ -355,7 +252,7 @@ elif graphs_choice == 'Crosses':
 
     teams = teams.tolist()
 
-    teams.remove('Athletic Club')
+    teams.insert(0, 'Athletic Club')
 
     teams_choice = second.selectbox('Choose team:', teams)
 
@@ -371,17 +268,13 @@ elif graphs_choice == 'Crosses':
 
     players_choice = third.selectbox('Choose player:', players)
 
-    matchDay = eventsPlayers.Match_ID.unique()
+    matchWeek = eventsPlayers.Match_ID.unique()
 
-    matchDay = matchDay.tolist()
+    matchWeek = matchWeek.tolist()
 
-    matchDay = sorted(matchDay)
+    matchWeek.sort()
 
-    matchDay.append('All Season')
-
-    matchDay.insert(0, 'All Season')
-
-    matchDay_choice = fourth.selectbox('Choose MatchDay:', matchDay)
+    matchDay_choice = fourth.selectbox('Choose MatchDay:', matchWeek)
 
     if players_choice != 'All Team':
         fig = ds.Cross(eventsPlayers, league_choice, teams_choice, matchDay_choice, players_choice)
@@ -403,32 +296,124 @@ elif graphs_choice == 'Switch Play':
 
     clubDF = eventsPlayers.loc[eventsPlayers.League == league_choice]
 
-    players = clubDF.name.unique()
+    teams = clubDF.team.unique()
+
+    teams = teams.tolist()
+
+    teams.insert(0, 'Athletic Club')
+
+    teams_choice = second.selectbox('Choose team:', teams)
+
+    club = eventsPlayers[eventsPlayers.team == teams_choice]
+
+    players = club.name.unique()
 
     players = players.tolist()
 
-    players.append('All Season')
+    players.append('All Team')
 
-    players.insert(0, 'All Season')
+    players.insert(0, 'All Team')
 
     players_choice = third.selectbox('Choose player:', players)
+
+    matchWeek = eventsPlayers.Match_ID.unique()
+
+    matchWeek = matchWeek.tolist()
+
+    matchWeek.sort()
+    
+    matchDay_choice = fourth.selectbox('Choose MatchDay:', matchWeek)
+
+    fig = ds.switchPlay(eventsPlayers, league_choice, teams_choice, matchDay_choice, players_choice)
+
+    st.pyplot(fig)
+
+elif graphs_choice == 'Heat Map':
+
+    first, second, third = st.columns(3)
+
+    teams = eventsPlayers.team.unique()
+
+    teams = teams.tolist()
+
+    teams.insert(0, 'Athletic Club')
+
+    teams_choice = first.selectbox('Choose team:', teams)
+
+    matchWeek = eventsPlayers.Match_ID.unique()
+
+    matchWeek = matchWeek.tolist()
+
+    matchWeek.sort()
+    
+    matchDay_choice = second.selectbox('Choose MatchDay:', matchWeek)
+
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
+
+    league_choice = third.selectbox('Choose league:', leagues)
+
+    fig = fc.touch_Map(teams_choice, league_choice, matchDay_choice)
+
+    st.pyplot(fig)
+
+elif graphs_choice == 'xT Heat Map':
+
+    st.title('Where are we creating more danger?')
+
+    first, second, third = st.columns(3)
+
+    teams = eventsPlayers.team.unique()
+
+    teams = teams.tolist()
+
+    teams.insert(0, 'Athletic Club')
+
+    teams_choice = first.selectbox('Choose team:', teams)
+
+    club = eventsPlayers[eventsPlayers.team == teams_choice]
+
+    matchWeek = eventsPlayers.Match_ID.unique()
+
+    matchWeek = matchWeek.tolist()
+
+    matchWeek.sort()
+    
+    matchDay_choice = second.selectbox('Choose MatchDay:', matchWeek)
+
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
+
+    league_choice = third.selectbox('Choose league:', leagues)
+
+    fig = fc.heatMap_xT(teams_choice, league_choice, matchDay_choice)
+
+    st.pyplot(fig)
+
+elif graphs_choice == 'Passing Network':
+
+    first, second, third = st.columns(3)
+
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
+
+    league_choice = first.selectbox('Choose league:', leagues)
+
+    clubDF = eventsPlayers.loc[eventsPlayers.League == league_choice]
 
     teams = clubDF.team.unique()
 
     teams = teams.tolist()
 
-    teams.remove('Athletic Club')
+    teams.insert(0, 'Athletic Club')
 
     teams_choice = second.selectbox('Choose team:', teams)
 
-    matchDay = eventsPlayers.Match_ID.unique()
+    matchWeek = eventsPlayers.Match_ID.unique()
 
-    matchDay = matchDay.tolist()
+    matchWeek = matchWeek.tolist()
 
-    matchDay = sorted(matchDay)
+    matchWeek.sort()
+    
+    matchDay_choice = third.selectbox('Choose MatchDay:', matchWeek)
 
-    matchDay_choice = fourth.selectbox('Choose MatchDay:', matchDay)
-
-    fig = ds.switchPlay(eventsPlayers, league_choice, teams_choice, matchDay_choice, players_choice)
+    fig = fc.passing_networkWhoScored(teams_choice, league_choice, matchDay_choice, afterSub=None)
 
     st.pyplot(fig)

@@ -137,7 +137,7 @@ clubColors = {'Atlético Madrid' : ['#e23829', '#262e62'],
               ###################################
               'Corinthians' : ['#ff0000', '#e8e8e8'],
               'Avai' : ['#00679a', '#e8e8e8'],
-              'Flamengo' : ['#ff0000', '#181818'],
+              'Flamengo' : ['#ff0000', '#E8E8E8'],
               'Palmeiras' : ['#046434', '#e8e8e8'],
               ###################################
               'Manchester City' : ['#7bb1d8', '#062e63'],
@@ -215,21 +215,21 @@ def cornersTaken(df, league, club, matchDay):
         fig, ax = plt.subplots(figsize=(18,14))
 
         pitch = VerticalPitch(pitch_type='opta', pad_top=0.1, pad_bottom=0.5,
-                        pitch_color='#181818', line_color='white', half = True, line_zorder=1, linewidth=5, spot_scale=0.00)
+                        pitch_color='#E8E8E8', line_color='#E8E8E8', half = True, line_zorder=1, linewidth=5, spot_scale=0.00)
 
         pitch.draw(ax=ax)
 
-        fig.set_facecolor('#181818')
+        fig.set_facecolor('#E8E8E8')
 
         #################################################################################################################################################
 
         # Title of our plot - WITH ANGLES BOTTOM: 0.98, 0.93
 
-        fig.suptitle(club + ' ' + 'Corners', fontsize=40, color='white', fontweight = "bold", x=0.5, y=0.955, ha='center', va='center')
+        fig.suptitle(club + ' ' + 'Corners', fontsize=40, color='#E8E8E8', fontweight = "bold", x=0.5, y=0.955, ha='center', va='center')
 
         Title = fig_text(s = 'Season 21-22 | Made by: @Menesesp20',
                          x = 0.5, y = 0.91,
-                         color='white', fontweight='bold', ha='center', va='center', fontsize=16);
+                         color='#E8E8E8', fontweight='bold', ha='center', va='center', fontsize=16);
 
         #################################################################################################################################################
 
@@ -293,7 +293,7 @@ def cornersTaken(df, league, club, matchDay):
 
         fig_text(s =  str(len(firstCorner_R_Cluster)),
                         x = 0.584, y = 0.378,
-                        color='white', fontweight='bold', ha='center' ,fontsize=30);
+                        color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=30);
 
         #################################################################################################################################################
 
@@ -302,7 +302,7 @@ def cornersTaken(df, league, club, matchDay):
 
         fig_text(s = str(len(firstCorner_L_Cluster)),
                  x = 0.44, y = 0.378,
-                 color='white', fontweight='bold', ha='center' ,fontsize=30);
+                 color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=30);
 
         #################################################################################################################################################
 
@@ -317,7 +317,7 @@ def cornersTaken(df, league, club, matchDay):
         # ANGLE LEFT VALUE
         #fig_text(s = '4.6°',
         #                x = 0.179, y = 0.887,
-        #                fontfamily = 'medium', color='white', fontweight='bold', ha='center' ,fontsize=15);
+        #                fontfamily = 'medium', color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=15);
 
         #################################################################################################################################################
 
@@ -327,11 +327,11 @@ def cornersTaken(df, league, club, matchDay):
         # ANGLE RIGHT VALUE
         #fig_text(s = '1.8°',
         #                x = 0.846, y = 0.887,
-        #                fontfamily = 'medium', color='white', fontweight='bold', ha='center' ,fontsize=15);
+        #                fontfamily = 'medium', color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=15);
 
         fig_text(s = 'The values inside pentagon are the total of corners made by each side',
                 x = 0.338, y = 0.129,
-                color='white', fontweight='bold', ha='center' ,fontsize=12);
+                color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=12);
 
 
 def corners1stPostTaken(df, league, club, matchDay):
@@ -356,22 +356,22 @@ def corners1stPostTaken(df, league, club, matchDay):
         fig, ax = plt.subplots(figsize=(18,14))
 
         pitch = VerticalPitch(pitch_type='opta',pad_top=0.1, pad_bottom=0.5,
-                        pitch_color='#181818', line_color='white', half = True, line_zorder=1, linewidth=5, spot_scale=0.00)
+                        pitch_color='#E8E8E8', line_color='#E8E8E8', half = True, line_zorder=1, linewidth=5, spot_scale=0.00)
 
         pitch.draw(ax=ax)
 
-        fig.set_facecolor('#181818')
+        fig.set_facecolor('#E8E8E8')
 
         #################################################################################################################################################
 
         # Title of our plot - WITH ANGLES BOTTOM: 0.98, 0.93
 
-        fig.suptitle(club + ' ' + '1st Post Corners', fontsize=40, color='white',
+        fig.suptitle(club + ' ' + '1st Post Corners', fontsize=40, color='#E8E8E8',
                       fontweight = "bold", x=0.525, y=0.955)
 
         Title = fig_text(s = 'Season 21-22 | Made by: @Menesesp20',
                          x = 0.5, y = 0.91,
-                         color='white', fontweight='bold', ha='center' ,fontsize=16);
+                         color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=16);
 
         #################################################################################################################################################
 
@@ -444,7 +444,7 @@ def corners1stPostTaken(df, league, club, matchDay):
 
         fig_text(s =  str(firstCornerR) + '%',
                         x = 0.584, y = 0.378,
-                        color='white', fontweight='bold', ha='center' ,fontsize=28);
+                        color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=28);
 
         #################################################################################################################################################
 
@@ -458,7 +458,7 @@ def corners1stPostTaken(df, league, club, matchDay):
 
         fig_text(s = str(firstCornerL) + '%',
                         x = 0.44, y = 0.378,
-                        color='white', fontweight='bold', ha='center' ,fontsize=28);
+                        color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=28);
 
         #################################################################################################################################################
 
@@ -473,7 +473,7 @@ def corners1stPostTaken(df, league, club, matchDay):
         # ANGLE LEFT VALUE
         #fig_text(s = '4.6°',
         #                x = 0.179, y = 0.887,
-        #                fontfamily = 'medium', color='white', fontweight='bold', ha='center' ,fontsize=15);
+        #                fontfamily = 'medium', color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=15);
 
         #################################################################################################################################################
 
@@ -483,11 +483,11 @@ def corners1stPostTaken(df, league, club, matchDay):
         # ANGLE RIGHT VALUE
         #fig_text(s = '1.8°',
         #                x = 0.846, y = 0.887,
-        #                fontfamily = 'medium', color='white', fontweight='bold', ha='center' ,fontsize=15);
+        #                fontfamily = 'medium', color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=15);
 
         fig_text(s = 'The values inside pentagon are the percentage of corners made by each side for the circle area',
                 x = 0.407, y = 0.14,
-                color='white', fontweight='bold', ha='center' ,fontsize=12);
+                color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=12);
 
 
 def corners2ndPostTaken(df, league, club, matchDay):
@@ -512,22 +512,22 @@ def corners2ndPostTaken(df, league, club, matchDay):
         fig, ax = plt.subplots(figsize=(18,14))
 
         pitch = VerticalPitch(pitch_type='opta', pad_top=0.1, pad_bottom=0.5,
-                        pitch_color='#181818', line_color='white', half = True, line_zorder=1, linewidth=5, spot_scale=0.00)
+                        pitch_color='#E8E8E8', line_color='#E8E8E8', half = True, line_zorder=1, linewidth=5, spot_scale=0.00)
 
         pitch.draw(ax=ax)
 
-        fig.set_facecolor('#181818')
+        fig.set_facecolor('#E8E8E8')
 
         #################################################################################################################################################
 
         # Title of our plot - WITH ANGLES BOTTOM: 0.98, 0.93
 
-        fig.suptitle(club + ' ' + '2nd Post Corners', fontsize=40, color='white',
+        fig.suptitle(club + ' ' + '2nd Post Corners', fontsize=40, color='#E8E8E8',
         fontweight = "bold", x=0.525, y=0.955)
 
         Title = fig_text(s = 'Season 21-22 | Made by: @Menesesp20',
                         x = 0.5, y = 0.91,
-                        color='white', fontweight='bold', ha='center' ,fontsize=16);
+                        color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=16);
 
         #################################################################################################################################################
 
@@ -560,7 +560,7 @@ def corners2ndPostTaken(df, league, club, matchDay):
 
                 fig_text(s = str(secondCornerL) + '%',
                                 x = 0.44, y = 0.378,
-                                fontfamily = 'medium', color='white', fontweight='bold', ha='center' ,fontsize=28);
+                                fontfamily = 'medium', color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=28);
 
         #################################################################################################################################################
 
@@ -594,7 +594,7 @@ def corners2ndPostTaken(df, league, club, matchDay):
 
                 fig_text(s =  str(secondCornerR) + '%',
                                 x = 0.584, y = 0.378,
-                                color='white', fontweight='bold', ha='center' ,fontsize=30);
+                                color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=30);
 
 
         #################################################################################################################################################
@@ -632,7 +632,7 @@ def corners2ndPostTaken(df, league, club, matchDay):
         # ANGLE LEFT VALUE
         #fig_text(s = '4.6°',
         #                x = 0.179, y = 0.887,
-        #                fontfamily = 'medium', color='white', fontweight='bold', ha='center' ,fontsize=15);
+        #                fontfamily = 'medium', color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=15);
 
         #################################################################################################################################################
 
@@ -642,10 +642,10 @@ def corners2ndPostTaken(df, league, club, matchDay):
         # ANGLE RIGHT VALUE
         #fig_text(s = '1.8°',
         #                x = 0.846, y = 0.887,
-        #                fontfamily = 'medium', color='white', fontweight='bold', ha='center' ,fontsize=15);
+        #                fontfamily = 'medium', color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=15);
 
         fig_text(s = 'The values inside pentagon are the percentage of corners made by each side for the circle area',
                 x = 0.407, y = 0.129,
-                color='white', fontweight='bold', ha='center' ,fontsize=12);
+                color='#E8E8E8', fontweight='bold', ha='center' ,fontsize=12);
 
 

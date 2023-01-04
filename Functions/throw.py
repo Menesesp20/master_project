@@ -166,22 +166,22 @@ def SetPiece_throwIn(df, league, club, n_Cluster, match=None):
         fig, ax = plt.subplots(figsize=(21,15))
 
         pitch = VerticalPitch(pitch_type='opta', pad_top=0.1, pad_bottom=0.5,
-                              pitch_color='#181818', line_color='white',
+                              pitch_color='#E8E8E8', line_color='#181818',
                               line_zorder=1, linewidth=5, spot_scale=0.00)
 
         pitch.draw(ax=ax)
 
-        fig.set_facecolor('#181818')
+        fig.set_facecolor('#E8E8E8')
 
         #################################################################################################################################################
 
         # Title of our plot - WITH ANGLES BOTTOM: 0.98, 0.93
 
-        fig.suptitle(club + ' ' + "Throw-In's", fontsize=32, color='white', fontweight = "bold", x=0.5, y=0.955, ha='center', va='center')
+        fig.suptitle(club + ' ' + "Throw-In's", fontsize=32, color='#181818', fontweight = "bold", x=0.5, y=0.955, ha='center', va='center')
 
         Title = fig_text(s = 'Season 21-22 | Made by: @Menesesp20',
                          x = 0.5, y = 0.91,
-                         color='white', fontweight='bold', ha='center', va='center', fontsize=11);
+                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=11);
 
         #################################################################################################################################################
         # DEFEND SIDE CLUSTER

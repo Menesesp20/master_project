@@ -35,8 +35,7 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 import streamlit as st
-sys.path.append('Functions')
-from Functions import data as d
+from . import data as d
 
 #############################################################################################################################################################
 df = d.getDataWyScout()

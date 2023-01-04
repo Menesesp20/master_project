@@ -66,10 +66,12 @@ sys.path.append('Functions/visualization')
 from Functions.utils import read_json
 from Functions.visualization.passing_network import draw_pitch, draw_pass_map
 
+"""
 from plottable import ColumnDefinition, ColumnType, Table
 from plottable.cmap import normed_cmap
 from plottable.formatters import decimal_to_percent
 from plottable.plots import circled_image, image, progress_donut
+"""
 
 clubColors = {'Brazil' : ['#fadb04', '#1c3474'],
               'Portugal' : ['#e1231b', '#004595'],
@@ -11075,6 +11077,7 @@ def dataFrameForward(contract, tier, Role, League, tier2=None):
 #------------------------------------------------ TABLES ----------------------------------------------------------------------
 ################################################################################################################################################
 
+"""
 def pathColumn(tableData):
         flag = []
         for idx, row in tableData.iterrows():
@@ -11201,7 +11204,7 @@ def table(boxForward, role):
     plt.savefig('assets/table' + role + '.png', dpi=300)
 
     return plt.show()
-
+"""
 ################################################################################################################################################
 
 

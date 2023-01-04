@@ -50,7 +50,7 @@ def load_model():
 
 eventsPlayers =  load_model()
 
-eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
+#eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS
 

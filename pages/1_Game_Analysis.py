@@ -35,8 +35,15 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 import streamlit as st
-from Functions.data import getDataOPTA
-from Functions.data import getDataWyScout
+@st.cache(allow_output_mutation=True)
+def getDataOPTA():
+    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+    return eventsPlayers
+
+@st.cache(allow_output_mutation=True)
+def getDataWyScout():
+    wyScout = pd.read_csv('Data/WyScout/WyScout.csv')
+    return wyScout
 
 #############################################################################################################################################################
 df = getDataWyScout()

@@ -917,7 +917,7 @@ def xT(data, dataSource):
   eventsPlayers_xT = df.copy()
 
   #Import xT Grid, turn it into an array, and then get how many rows and columns it has
-  xT = pd.read_csv('C:/Users/menes/Documents/Data Hub/xT/xT_Grid.csv', header=None)
+  xT = pd.read_csv('xT/xT_Grid.csv', header=None)
   xT = np.array(xT)
   xT_rows, xT_cols = xT.shape
 
@@ -4903,7 +4903,7 @@ def corners1stPostTaken(club):
         #################################################################################################################################################
 
         # Angle Left Logo
-        #fig = add_image(image='C:/Users/menes/Documents/Data Hub/angleLeft.png', fig=fig, left=0.082, bottom=0.842, width=0.2, height=0.1)
+        #fig = add_image(image='angleLeft.png', fig=fig, left=0.082, bottom=0.842, width=0.2, height=0.1)
 
         # ANGLE LEFT VALUE
         #fig_text(s = '4.6°',
@@ -4913,7 +4913,7 @@ def corners1stPostTaken(club):
         #################################################################################################################################################
 
         # Angle Right Logo
-        #fig = add_image(image='C:/Users/menes/Documents/Data Hub/angleRight.png', fig=fig, left=0.7425, bottom=0.842, width=0.2, height=0.1)
+        #fig = add_image(image='angleRight.png', fig=fig, left=0.7425, bottom=0.842, width=0.2, height=0.1)
 
         # ANGLE RIGHT VALUE
         #fig_text(s = '1.8°',
@@ -5091,7 +5091,7 @@ def corners2ndPostTaken(club):
         #################################################################################################################################################
 
         # Angle Left Logo
-        #fig = add_image(image='C:/Users/menes/Documents/Data Hub/angleLeft.png', fig=fig, left=0.082, bottom=0.842, width=0.2, height=0.1)
+        #fig = add_image(image='angleLeft.png', fig=fig, left=0.082, bottom=0.842, width=0.2, height=0.1)
 
         # ANGLE LEFT VALUE
         #fig_text(s = '4.6°',
@@ -5101,7 +5101,7 @@ def corners2ndPostTaken(club):
         #################################################################################################################################################
 
         # Angle Right Logo
-        #fig = add_image(image='C:/Users/menes/Documents/Data Hub/angleRight.png', fig=fig, left=0.7425, bottom=0.842, width=0.2, height=0.1)
+        #fig = add_image(image='angleRight.png', fig=fig, left=0.7425, bottom=0.842, width=0.2, height=0.1)
 
         # ANGLE RIGHT VALUE
         #fig_text(s = '1.8°',
@@ -5668,9 +5668,9 @@ def possessionGained(team, eventType):
                     ha='center', va='center',
                     fontsize=5)
 
-    add_image(image='C:/Users/menes/Documents/Data Hub/Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.25, bottom=0.905, width=0.08, height=0.09)
+    add_image(image='Images/Clubs/' + 'Mundial' + '/' + team + '.png', fig=fig, left=0.25, bottom=0.905, width=0.08, height=0.09)
     
-    add_image(image='C:/Users/menes/Documents/Data Hub/Images/WorldCup_Qatar.png', fig=fig, left=0.7, bottom=0.9, width=0.08, height=0.1)
+    add_image(image='Images/WorldCup_Qatar.png', fig=fig, left=0.7, bottom=0.9, width=0.08, height=0.1)
 
     plt.savefig('assets/possessionGained' + team + '.png', dpi=300)
 
@@ -6598,25 +6598,25 @@ def similarityDashboard(df, age, end_Value, minutes, playerName, role, contract,
         """
         for i in range(len(data)):
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[0].get('Players') + '.png', fig=fig, left=0.09, bottom=0.16, width=0.1, height=0.058)
+                ax6_image = add_image(image='Images/Players/' + 'Premier League' + '/' + data[0].get('Players') + '.png', fig=fig, left=0.09, bottom=0.16, width=0.1, height=0.058)
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[1].get('Players') + '.png', fig=fig, left=0.09, bottom=0.242, width=0.1, height=0.058)
+                ax6_image = add_image(image='
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[2].get('Players') + '.png', fig=fig, left=0.09, bottom=0.322, width=0.1, height=0.058)
+                ax6_image = add_image(image='Images/Players/' + 'Premier League' + '/' + data[2].get('Players') + '.png', fig=fig, left=0.09, bottom=0.322, width=0.1, height=0.058)
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[3].get('Players')+ '.png', fig=fig, left=0.09, bottom=0.398, width=0.1, height=0.058)
+                ax6_image = add_image(image='
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[4].get('Players') + '.png', fig=fig, left=0.09, bottom=0.47, width=0.1, height=0.058)
+                ax6_image = add_image(image='Images/Players/' + 'Premier League' + '/' + data[4].get('Players') + '.png', fig=fig, left=0.09, bottom=0.47, width=0.1, height=0.058)
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[5].get('Players') + '.png', fig=fig, left=0.09, bottom=0.55, width=0.1, height=0.058)
+                ax6_image = add_image(image='' + '/' + data[5].get('Players') + '.png', fig=fig, left=0.09, bottom=0.55, width=0.1, height=0.058)
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[6].get('Players') + '.png', fig=fig, left=0.09, bottom=0.624, width=0.1, height=0.058)
+                ax6_image = add_image(image='Images/Players/' + 'Premier League' + '/' + data[6].get('Players') + '.png', fig=fig, left=0.09, bottom=0.624, width=0.1, height=0.058)
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[7].get('Players') + '.png', fig=fig, left=0.09, bottom=0.70, width=0.1, height=0.058)
+                ax6_image = add_image(image='Images/Players/' + 'Premier League' + '/' + data[7].get('Players') + '.png', fig=fig, left=0.09, bottom=0.70, width=0.1, height=0.058)
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[8].get('Players') + '.png', fig=fig, left=0.09, bottom=0.773, width=0.1, height=0.058)
+                ax6_image = add_image(image='Images/Players/' + 'Premier League' + '/' + data[8].get('Players') + '.png', fig=fig, left=0.09, bottom=0.773, width=0.1, height=0.058)
 
-                ax6_image = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + 'Premier League' + '/' + data[9].get('Players') + '.png', fig=fig, left=0.09, bottom=0.85, width=0.1, height=0.058)
+                ax6_image = add_image(image='Images/Players/' + 'Premier League' + '/' + data[9].get('Players') + '.png', fig=fig, left=0.09, bottom=0.85, width=0.1, height=0.058)
         """
 
         ax1 = plt.subplot(
@@ -7177,7 +7177,7 @@ def evaluation(df, league, club, playerName, role):
     plt.ylabel('menesesp20 VALUE', color='#181818', size=11)
     plt.xlabel('SEASON', color='#181818', size=11)
 
-    fig = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + league + '/' + club + '/' + playerName + '.png', fig=fig, left=0.12, bottom=0.93, width=0.12, height=0.11)
+    fig = add_image(image='
 
     plt.show()
 
@@ -7578,7 +7578,7 @@ def PizzaChart(df, cols, playerName, league):
     ])
 
     # add image
-    add_image('C:/Users/menes/Documents/Data Hub/Images/SWL LOGO.png', fig, left=0.462, bottom=0.436, width=0.10, height=0.132)
+    add_image('ght=0.132)
 
 ################################################################################################################################################
 
@@ -10548,9 +10548,9 @@ def scoutReport(playerName, team, setPieces, isDefensive, tier):
                 size=100,
                 color='#ff0000')
 
-    #fig = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Players/' + league + '/' + club + '/' + playerName + '.png', fig=fig, left=0.12, bottom=0.78, width=0.1, height=0.23)
+    #fig = add_image(image='Images/Players/' + league + '/' + club + '/' + playerName + '.png', fig=fig, left=0.12, bottom=0.78, width=0.1, height=0.23)
 
-    #fig = add_image(image='C:/Users/menes/Documents/Data Hub/Images/Country/' + country + '.png', fig=fig, left=0.23, bottom=0.775, width=0.1, height=0.07)
+    #fig = add_image(image='Images/Country/' + country + '.png', fig=fig, left=0.23, bottom=0.775, width=0.1, height=0.07)
 
 
     plt.savefig('assets/scoutReport' + playerName + '.png', dpi=300)
@@ -11083,9 +11083,9 @@ def pathColumn(tableData):
         for idx, row in tableData.iterrows():
                 if ', ' in tableData.loc[idx, 'Passport country']:
                         tableData.loc[idx, 'Passport country'] = tableData.loc[idx, 'Passport country'].split(', ')[0]
-                        flag.append('C:/Users/menes/Documents/Data Hub/Country/' + tableData.loc[idx, 'Passport country'] + '.png')
+                        flag.append('Country/' + tableData.loc[idx, 'Passport country'] + '.png')
                 else:
-                        flag.append('C:/Users/menes/Documents/Data Hub/Country/' + tableData.loc[idx, 'Passport country'] + '.png')
+                        flag.append('Country/' + tableData.loc[idx, 'Passport country'] + '.png')
         
         return flag
 

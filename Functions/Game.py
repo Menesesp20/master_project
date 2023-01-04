@@ -102,7 +102,7 @@ clubColors = {'Brazil' : ['#fadb04', '#1c3474'],
               'Ecuador' : ['#ffce00', '#002255'],
               'South Korea' : ['#021858', '#ffffff']}
 
-df = pd.read_csv('C:/Users/menes/Documents/Data Hub/Database/optaMundial.csv')
+df = pd.read_csv('Data/opta/optaData.csv')
 df["matchTimestamp"] = 60 * df["minute"] + df["second"]
 df["matchTimestamp"] = pd.to_timedelta(df["matchTimestamp"], unit='s')
 df.drop_duplicates(subset=['name', 'matchTimestamp', 'team', 'typedisplayName', 'x', 'y'], keep='first', inplace=True)

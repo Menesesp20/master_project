@@ -30,6 +30,7 @@ from Functions import dashboard as ds
 
 #############################################################################################################################################################
 <<<<<<< HEAD:Main.py
+<<<<<<< HEAD:Main.py
 from Functions.data import getDataOPTA
 from Functions.data import getDataWyScout
 
@@ -50,12 +51,27 @@ df = load_model()
 
 #############################################################################################################################################################
 
+=======
+@st.cache
+def load_model():
+    
+    df = pd.read_csv('Data/WyScout/WyScout.csv')
+    return df
+
+df = load_model()
+
+#############################################################################################################################################################
+
+>>>>>>> parent of 73d9b2d (update):1_Main.py
 @st.cache
 def data():
     eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
     return eventsPlayers
 
 eventsPlayers = data()
+<<<<<<< HEAD:Main.py
+>>>>>>> parent of 73d9b2d (update):1_Main.py
+=======
 >>>>>>> parent of 73d9b2d (update):1_Main.py
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 

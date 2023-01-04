@@ -135,8 +135,11 @@ import streamlit as st
 
 #############################################################################################################################################################
 <<<<<<< HEAD
+<<<<<<< HEAD
 from Functions.data import getDataOPTA
 from Functions.data import getDataWyScout
+=======
+>>>>>>> parent of 73d9b2d (update)
 =======
 >>>>>>> parent of 73d9b2d (update)
 
@@ -146,8 +149,12 @@ def data():
     return eventsPlayers
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 df = getDataOPTA()
 df['isTouch'] = df['isTouch'].astype(bool)
+=======
+df = data()
+>>>>>>> parent of 73d9b2d (update)
 =======
 df = data()
 >>>>>>> parent of 73d9b2d (update)

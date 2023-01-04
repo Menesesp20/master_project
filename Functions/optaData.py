@@ -25,8 +25,11 @@ import streamlit as st
 
 #############################################################################################################################################################
 <<<<<<< HEAD
+<<<<<<< HEAD
 from Functions.data import getDataOPTA
 from Functions.data import getDataWyScout
+=======
+>>>>>>> parent of 73d9b2d (update)
 =======
 >>>>>>> parent of 73d9b2d (update)
 
@@ -36,7 +39,11 @@ def data():
     return eventsPlayers
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 eventsPlayers = getDataOPTA()
+=======
+eventsPlayers = data()
+>>>>>>> parent of 73d9b2d (update)
 =======
 eventsPlayers = data()
 >>>>>>> parent of 73d9b2d (update)

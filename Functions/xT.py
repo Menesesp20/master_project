@@ -33,6 +33,7 @@ plt.rcParams['font.sans-serif'] = prop.get_name()
 
 import streamlit as st
 <<<<<<< HEAD
+<<<<<<< HEAD
 from Functions.data import getDataOPTA
 from Functions.data import getDataWyScout
 #############################################################################################################################################################
@@ -40,12 +41,18 @@ from Functions.data import getDataWyScout
 df = getDataOPTA()
 =======
 
+=======
+
+>>>>>>> parent of 73d9b2d (update)
 @st.cache
 def data():
     eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
     return eventsPlayers
 
 df = data()
+<<<<<<< HEAD
+>>>>>>> parent of 73d9b2d (update)
+=======
 >>>>>>> parent of 73d9b2d (update)
 df['isTouch'] = df['isTouch'].astype(bool)
 # DICTIONARY OF COLORS

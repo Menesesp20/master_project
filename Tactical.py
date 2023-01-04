@@ -38,6 +38,7 @@ import streamlit as st
 
 #############################################################################################################################################################
 <<<<<<< HEAD
+<<<<<<< HEAD
 from Functions.data import getDataOPTA
 from Functions.data import getDataWyScout
 
@@ -58,12 +59,27 @@ df = load_model()
 
 #############################################################################################################################################################
 
+=======
+@st.cache
+def load_model():
+    
+    df = pd.read_csv('Data/WyScout/WyScout.csv')
+    return df
+
+df = load_model()
+
+#############################################################################################################################################################
+
+>>>>>>> parent of 73d9b2d (update)
 @st.cache
 def data():
     eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
     return eventsPlayers
 
 eventsPlayers = data()
+<<<<<<< HEAD
+>>>>>>> parent of 73d9b2d (update)
+=======
 >>>>>>> parent of 73d9b2d (update)
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 

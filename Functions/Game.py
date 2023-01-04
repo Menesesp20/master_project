@@ -1022,7 +1022,7 @@ def touch_Map(club, league, gameID, Player=None):
                 player_df = df.loc[(df['Match_ID'] == gameID)]
 
         # Plotting the pitch
-        fig, ax = plt.subplots(figsize=(6,4))
+        fig, ax = plt.subplots(figsize=(10, 15), dpi=300)
 
         pitch = Pitch(pitch_type='opta',
                       pitch_color='#E8E8E8', line_color='#181818',

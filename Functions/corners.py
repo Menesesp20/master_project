@@ -38,8 +38,8 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 #############################################################################################################################################################
-from data import getDataOPTA
-from data import getDataWyScout
+from Functions.data import getDataOPTA
+from Functions.data import getDataWyScout
 
 eventsPlayers = getDataOPTA()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)

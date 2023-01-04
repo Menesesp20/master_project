@@ -33,11 +33,11 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 import streamlit as st
-
+    
 #############################################################################################################################################################
 sys.path.append('Functions')
-from data import getDataOPTA
-from data import getDataWyScout
+from Functions.data import getDataOPTA
+from Functions.data import getDataWyScout
 
 #############################################################################################################################################################
 df = getDataWyScout()

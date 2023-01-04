@@ -29,8 +29,8 @@ st.sidebar.image(logo)
 from Functions import dashboard as ds
 
 #############################################################################################################################################################
-from data import getDataOPTA
-from data import getDataWyScout
+from Functions.data import getDataOPTA
+from Functions.data import getDataWyScout
 
 #############################################################################################################################################################
 df = getDataWyScout()

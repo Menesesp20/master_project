@@ -24,8 +24,8 @@ plt.rcParams['font.sans-serif'] = prop.get_name()
 import streamlit as st
 
 #############################################################################################################################################################
-from data import getDataOPTA
-from data import getDataWyScout
+from Functions.data import getDataOPTA
+from Functions.data import getDataWyScout
 
 #############################################################################################################################################################
 

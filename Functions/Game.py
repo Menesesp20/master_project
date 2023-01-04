@@ -1567,7 +1567,7 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
 ######################################################################################################################################################
 ######################################################################################################################################################
 ######################################################################################################################################################
-        pass_nodes = pitch.scatter(avg['x'], avg['y'], s=350,
+        pass_nodes = pitch.scatter(avg['x'], avg['y'], s=100,
                                 cmap=pearl_earring_cmap, edgecolors="#010101", c=avg['xT'], linewidth=1.3, ax=ax, zorder=3)
 
 
@@ -1602,7 +1602,7 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
                 x = 0.52, y = 0.94,
                 color='#181818', fontweight='bold', ha='center',
                 highlight_textprops = highlight_textprops,
-                fontsize=18);
+                fontsize=11);
 
         matchID = network.Match_ID.unique()
         matchID = matchID[0]
@@ -1610,12 +1610,12 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
         fig_text(s = 'Passing Network' + ' ' + '|' + ' ' + 'MatchDay' + ' ' + str(matchID) + '| World Cup Catar 2022 | @menesesp20',
                 x = 0.52, y = 0.91,
                 color='#181818', fontweight='bold', ha='center',
-                fontsize=5);
+                fontsize=4);
 
         fig_text(s = 'The color of the nodes is based on xT value',
                  x = 0.44, y = 0.875,
                  color='#181818', fontweight='bold', ha='center',
-                 fontsize=5);
+                 fontsize=3);
 
         # Club Logo
         fig = add_image(image='Images/Clubs/' + league + '/' + team + '.png', fig=fig, left=0.383, bottom=0.898, width=0.04, height=0.05)

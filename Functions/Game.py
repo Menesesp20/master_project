@@ -1022,7 +1022,7 @@ def touch_Map(club, league, gameID, Player=None):
                 player_df = df.loc[(df['Match_ID'] == gameID)]
 
         # Plotting the pitch
-        fig, ax = plt.subplots(figsize=(6, 4), dpi=300)
+        fig, ax = plt.subplots(figsize=(8, 6), dpi=300)
 
         pitch = Pitch(pitch_type='opta',
                       pitch_color='#E8E8E8', line_color='#181818',
@@ -1065,7 +1065,7 @@ def touch_Map(club, league, gameID, Player=None):
         elif (Player != None) & (gameID == 'All Season'):
                 fig_text(s =f'<{Player}>' + ' ' + 'Touch Map',
                         x = 0.5, y = 0.93, highlight_textprops = highlight_textprops,
-                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=8);
+                        color='#181818', fontweight='bold', ha='center', va='center', fontsize=11);
                 
                 fig_text(s ='All Season ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.88, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);

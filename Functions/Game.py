@@ -1374,11 +1374,11 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
 
         ##################################################################################################################################################################
 
-        fig, ax = plt.subplots(figsize=(8, 6), dpi=300)
+        fig, ax = plt.subplots(figsize=(8, 6), dpi=500)
 
         pitch = VerticalPitch(pitch_type='opta',
                               pitch_color='#E8E8E8', line_color='#181818',
-                              line_zorder=3, linewidth=0.5, spot_scale=0.00)
+                              line_zorder=1, linewidth=0.5, spot_scale=0.00)
 
         pitch.draw(ax=ax)
 
@@ -1567,7 +1567,7 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
 ######################################################################################################################################################
 ######################################################################################################################################################
 ######################################################################################################################################################
-        pass_nodes = pitch.scatter(avg['x'], avg['y'], s=250,
+        pass_nodes = pitch.scatter(avg['x'], avg['y'], s=230,
                                 cmap=pearl_earring_cmap, edgecolors="#010101", c=avg['xT'], linewidth=1.3, ax=ax, zorder=3)
 
 

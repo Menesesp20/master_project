@@ -17,7 +17,7 @@ from PIL import Image
 
 import time
 
-st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
 
 #############################################################################################################################################################
 

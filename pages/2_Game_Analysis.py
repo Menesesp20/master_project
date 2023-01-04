@@ -254,7 +254,7 @@ elif graphsFlows_choice == 'Switch Play':
 
 elif graphsFlows_choice == 'Heat Map':
 
-    first, second = st.columns(2)
+    first, second, third = st.columns(3)
 
     teams = eventsPlayers.team.unique()
 
@@ -272,7 +272,11 @@ elif graphsFlows_choice == 'Heat Map':
     
     matchDay_choice = second.selectbox('Choose MatchDay:', matchWeek)
 
-    fig = fc.touch_Map(teams_choice, matchDay_choice)
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
+
+    league_choice = third.selectbox('Choose league:', leagues)
+
+    fig = fc.touch_Map(teams_choice, league_choice, matchDay_choice)
 
     st.pyplot(fig)
 
@@ -280,7 +284,7 @@ elif graphsFlows_choice == 'xT Heat Map':
 
     st.title('Where are we creating more danger?')
 
-    first, second = st.columns(2)
+    first, second, third = st.columns(3)
 
     teams = eventsPlayers.team.unique()
 
@@ -300,7 +304,11 @@ elif graphsFlows_choice == 'xT Heat Map':
     
     matchDay_choice = second.selectbox('Choose MatchDay:', matchWeek)
 
-    fig = fc.heatMap_xT(teams_choice, matchDay_choice)
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
+
+    league_choice = third.selectbox('Choose league:', leagues)
+
+    fig = fc.heatMap_xT(teams_choice, league_choice, matchDay_choice)
 
     st.pyplot(fig)
 

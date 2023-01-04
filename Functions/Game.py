@@ -1012,7 +1012,7 @@ def xT(data, dataSource):
 
 ################################################################################################################################################
 
-def touch_Map(club, gameID, Player=None):
+def touch_Map(club, league, gameID, Player=None):
 
         color = clubColors.get(club)
 
@@ -1022,10 +1022,6 @@ def touch_Map(club, gameID, Player=None):
                 player_df = df.loc[(df['Match_ID'] == gameID)]
 
         # Plotting the pitch
-
-        league = player_df.Comp.unique()
-        league = league[0]
-        
         fig, ax = plt.subplots(figsize=(6,4))
 
         pitch = Pitch(pitch_type='opta',
@@ -1111,7 +1107,7 @@ def touch_Map(club, gameID, Player=None):
 
 ################################################################################################################################################
 
-def heatMap_xT(club, gameDay, player=None):
+def heatMap_xT(club, league, gameDay, player=None):
 
         color = clubColors.get(club)
         
@@ -1123,9 +1119,6 @@ def heatMap_xT(club, gameDay, player=None):
                 xTheatMap = xTDF.loc[(xTDF['team'] == club) & (xTDF['Match_ID'] == gameDay)]
         else:
                 xTheatMap = xTDF.loc[(xTDF['name'] == player) & (xTDF['Match_ID'] == gameDay)]
-
-        league = xTheatMap.Comp.unique()
-        league = league[0]
 
         fig, ax = plt.subplots(figsize=(6,4))
 
@@ -1187,7 +1180,7 @@ def heatMap_xT(club, gameDay, player=None):
 
 ################################################################################################################################################
 
-def heatMapChances(team, data, player=None):
+def heatMapChances(team, league, data, player=None):
     
     color = clubColors.get(team)
 
@@ -1271,9 +1264,6 @@ def heatMapChances(team, data, player=None):
         fig_text(s = 'All open-play chances created in the ' + 'La Liga',
                     x = 0.53, y = 0.9, fontweight='bold',
                     ha='center',fontsize=5, color='#181818', alpha=0.4);
-
-        league = player_df.Comp.unique()
-        league = league[0]
 
         #fig_text(s = 'Coach: Jorge Jesus',
         #         x = 0.29, y = 0.862, color='#181818', fontweight='bold', ha='center', alpha=0.8, fontsize=6);
@@ -1622,7 +1612,7 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
 
 ################################################################################################################################################
 
-def highTurnovers(club, gameDay, data, player=None):
+def highTurnovers(club, league, gameDay, data, player=None):
     
     if data == 'WhoScored':
         
@@ -1630,9 +1620,6 @@ def highTurnovers(club, gameDay, data, player=None):
             dataDF = df.loc[df.Match_ID == gameDay].reset_index(drop=True)
         else:
             dataDF = df.loc[df.name == player].reset_index(drop=True)
-
-        league = dataDF.Comp.unique()
-        league = league[0]
 
         #Plotting the pitch
         highTurnover = dataDF.loc[(dataDF['typedisplayName'] == 'BallRecovery') & (dataDF.y >= 65) & (dataDF.team == club)].reset_index(drop=True)
@@ -1689,7 +1676,7 @@ def highTurnovers(club, gameDay, data, player=None):
 
 ################################################################################################################################################
 
-def draw_heatmap_construcao(club, data, player=None):
+def draw_heatmap_construcao(club, league, data, player=None):
 
   color = clubColors.get(club)
 
@@ -1719,9 +1706,6 @@ def draw_heatmap_construcao(club, data, player=None):
     passesGk['y'] = passesGk['y'].astype(float)
 
     bs = pitch.bin_statistic(passesGk['x'], passesGk['y'], bins=(12, 8))
-
-  league = passesGk.Comp.unique()
-  league = league[0]
 
   pitch.heatmap(bs, edgecolors='#e8e8e8', ax=ax, cmap=pearl_earring_cmap)
 
@@ -1754,7 +1738,7 @@ def draw_heatmap_construcao(club, data, player=None):
 
 ################################################################################################################################################
 
-def defensiveCover(club, data, player=None):
+def defensiveCover(club, league, data, player=None):
 
         color = clubColors.get(club)
 
@@ -1825,9 +1809,6 @@ def defensiveCover(club, data, player=None):
                 pitch.label_heatmap(bs, color='#E8E8E8', fontsize=8,
                                         ax=ax, ha='center', va='center',
                                         str_format='{:.0%}', path_effects=path_eff)
-
-        league = defensiveCover_list.Comp.unique()
-        league = league[0]
 
         # Club Logo
         fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.35, bottom=0.9, width=0.08, height=0.08)

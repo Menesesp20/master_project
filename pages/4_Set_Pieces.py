@@ -95,7 +95,7 @@ from Functions import corners, throw
 
 #############################################################################################################################################################
 
-def search_qualifierOPTA(data, list_Name, event):
+def search_qualifierOPTA(data, event):
   cols = data.columns
 
   list_Name = pd.DataFrame(columns=cols)
@@ -137,7 +137,7 @@ eventsPlayers = eventsPlayers.loc[eventsPlayers.team == teams_choice]
 
 cornersData = []
 
-cornersData = search_qualifierOPTA(eventsPlayers, cornersData, 'CornerTaken')
+cornersData = search_qualifierOPTA(eventsPlayers, 'CornerTaken')
 
 throwIn = []
 

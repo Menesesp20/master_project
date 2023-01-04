@@ -20,4 +20,4 @@ SQLAlchemy==1.4.44
 statsbombpy==1.4.3
 streamlit==1.8.1
 streamlit-authenticator==0.1.4
-tqdm==4.50.3
+tqdm==4.50.2

@@ -2271,7 +2271,7 @@ def halfspaces_Zone14(Game, league, club, GameID=None):
         fig.set_facecolor('#181818')
         ###################################################################################################################################
 
-        fig.suptitle('Athletic', fontsize=32, color='white', fontweight = "bold", x=0.5, y=0.95, ha='center', va='center')
+        fig.suptitle('Athletic Club', fontsize=32, color='white', fontweight = "bold", x=0.5, y=0.95, ha='center', va='center')
 
         fig_text(s = 'Half Spaces & Zone 14 | Season 21-22 | @menesesp20',
                  x = 0.5, y = 0.91, color='white', ha='center', va='center', fontweight = "bold", fontsize=10);

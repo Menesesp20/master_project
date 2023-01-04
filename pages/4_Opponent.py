@@ -130,7 +130,7 @@ elif graphs_choice == 'Area Covered Front Players':
 
     first, second, third = st.columns(3)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -181,7 +181,7 @@ elif graphs_choice == 'Passing Network':
 
     first, second, third = st.columns(3)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -275,7 +275,7 @@ elif graphs_choice == 'xT Field':
 
     first, second, third = st.columns(3)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -311,7 +311,7 @@ elif graphs_choice == 'Field Zones':
 
     first, second = st.columns(2)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -334,7 +334,7 @@ elif graphs_choice == 'Crosses':
 
     first, second, third, fourth = st.columns(4)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -386,7 +386,7 @@ elif graphs_choice == 'Switch Play':
 
     first, second, third, fourth = st.columns(4)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 

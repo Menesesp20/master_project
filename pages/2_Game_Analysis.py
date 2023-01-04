@@ -83,6 +83,7 @@ sys.path.append('whoscored_scraper')
 
 from Functions import dashboard as ds
 from Functions import xT as xt
+from Functions import Game as fc
 
 #############################################################################################################################################################
 
@@ -90,7 +91,7 @@ st.sidebar.title('Game Analysis')
 
 st.title('Were we superior?')
 
-graphsFlows = ['xT Flow', '1/3 Touches Flow', 'Field Tilt', 'Passing Network', 'Heat Map', 'xT Heat Map', 'Crosses', 'Switch Play']
+graphsFlows = ['xT Flow', 'Field Tilt', 'Passing Network', 'Heat Map', 'xT Heat Map', 'Crosses', 'Switch Play']
 
 graphsFlows_choice = st.sidebar.selectbox('What do you want to analyze?', graphsFlows)
 
@@ -117,11 +118,11 @@ if graphsFlows_choice == 'Field Tilt':
 
     matchDay_choice = second.selectbox('Choose MatchDay:', matchDay)
 
-    fig = ds.field_Tilt(eventsPlayers, matchDay_choice, teams_choice)
+    fig = fc.field_Tilt(teams_choice, matchDay_choice)
 
     st.pyplot(fig)
 
-if graphsFlows_choice == 'xT Flow':
+elif graphsFlows_choice == 'xT Flow':
 
     first, second, third = st.columns(3)
 
@@ -133,7 +134,7 @@ if graphsFlows_choice == 'xT Flow':
 
     matchDay_choice = first.selectbox('Choose MatchDay:', matchWeek)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = second.selectbox('Choose league:', leagues)
 
@@ -149,64 +150,17 @@ if graphsFlows_choice == 'xT Flow':
 
 #############################################################################################################################################################
 
-    game_df = eventsPlayers.loc[eventsPlayers.Match_ID == matchDay_choice]
-
-    xTDF = ds.xT(game_df)
-
-    game = xt.dataFrame_xTFlow(xTDF, matchDay_choice)
-
-    game = game.reset_index(drop=True)
-
-#############################################################################################################################################################
-
-    fig = xt.xT_Flow(game, league_choice, teams_choice)
+    fig = fc.xT_Flow(teams_choice, matchDay_choice, 'WhoScored')
 
     st.pyplot(fig)
-
-elif graphsFlows_choice == '1/3 Touches Flow':
-
-    first, second, third = st.columns(3)
-
-    matchWeek = eventsPlayers.Match_ID.unique()
-
-    matchWeek = matchWeek.tolist()
-
-    matchWeek.sort()
-
-    matchDay_choice = first.selectbox('Choose MatchDay:', matchWeek)
-
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
-
-    league_choice = second.selectbox('Choose league:', leagues)
-
-    clubDF = eventsPlayers.loc[eventsPlayers.League == league_choice]
-
-    teams = clubDF.team.unique()
-
-    teams = teams.tolist()
-
-    teams.insert(0, 'Athletic Club')
-
-    teams_choice = third.selectbox('Choose team:', teams)
+    
 #############################################################################################################################################################
-
-    touches3rd = eventsPlayers.loc[(eventsPlayers.isTouch == True) & (eventsPlayers.x >= 90) & (eventsPlayers.Match_ID == matchDay_choice)]
-
-    game = xt.dataFrame_touchFlow(touches3rd, matchDay_choice)
-
-    game = game.reset_index(drop=True)
-
-#############################################################################################################################################################
-
-    fig = xt.touch_Flow(game, league_choice, teams_choice)
-
-    st.pyplot(fig)
 
 elif graphsFlows_choice == 'Crosses':
 
     first, second, third, fourth = st.columns(4)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -254,7 +208,7 @@ elif graphsFlows_choice == 'Switch Play':
 
     first, second, third, fourth = st.columns(4)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -312,7 +266,7 @@ elif graphsFlows_choice == 'Heat Map':
     
     matchDay_choice = second.selectbox('Choose MatchDay:', matchWeek)
 
-    fig = ds.touch_Map(eventsPlayers, 'Match_ID', matchDay_choice, 'x', 'y' , 'isTouch', True, 'La Liga', teams_choice)
+    fig = fc.touch_Map(teams_choice, matchDay_choice)
 
     st.pyplot(fig)
 
@@ -340,9 +294,7 @@ elif graphsFlows_choice == 'xT Heat Map':
     
     matchDay_choice = second.selectbox('Choose MatchDay:', matchWeek)
 
-    xTDF = ds.xT(eventsPlayers)
-
-    fig = ds.heatMap_xT(xTDF, 'La Liga', teams_choice, matchDay_choice)
+    fig = fc.heatMap_xT(teams_choice, matchDay_choice)
 
     st.pyplot(fig)
 
@@ -350,7 +302,7 @@ elif graphsFlows_choice == 'Passing Network':
 
     first, second, third = st.columns(3)
 
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -372,6 +324,6 @@ elif graphsFlows_choice == 'Passing Network':
     
     matchDay_choice = third.selectbox('Choose MatchDay:', matchWeek)
 
-    fig = ds.dashboardPassingNetwork(eventsPlayers, matchDay_choice, league_choice, teams_choice)
+    fig = fc.passing_networkWhoScored(teams_choice, matchDay_choice, afterSub=None)
 
     st.pyplot(fig)

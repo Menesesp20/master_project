@@ -14,12 +14,6 @@ from highlight_text import  ax_text, fig_text
 
 from soccerplots.utils import add_image
 
-from pandas.core.common import SettingWithCopyWarning
-
-import warnings
-warnings.simplefilter(action="ignore", category=SettingWithCopyWarning)
-
-
 #############################################################################################################################################################
 
 import matplotlib.pyplot as plt

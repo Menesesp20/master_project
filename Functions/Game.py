@@ -36,7 +36,7 @@ import seaborn as sns
 import warnings
 warnings.filterwarnings("ignore")
 
-from mplsoccer import VerticalPitch, Pitch, Radar, FontManager, grid, PyPizza
+from mplsoccer import Pitch, VerticalPitch, PyPizza
 
 import scipy.stats as stats
 

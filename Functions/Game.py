@@ -1096,7 +1096,7 @@ def touch_Map(club, league, gameID, Player=None):
 
         pitch.scatter(player_df['x'], player_df['y'], ax=ax, edgecolor='#181818', facecolor='black', alpha=0.5, zorder=2)
 
-        pitch.scatter(x=convex['x'].mean(), y=convex['y'].mean(), ax=ax, c='#E8E8E8', edgecolor=color[0], s=200, zorder=5)
+        #pitch.scatter(x=convex['x'].mean(), y=convex['y'].mean(), ax=ax, c='#E8E8E8', edgecolor=color[0], s=200, zorder=5)
 
         #############################################################################################################################################
 

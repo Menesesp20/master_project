@@ -1063,7 +1063,7 @@ def touch_Map(club, gameID, Player=None):
                         x = 0.5, y = 0.93, highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=16);
                 
-                fig_text(s ='MatchDay:' + str(gameID) + ' ' +  '| World Cup Catar 2022 | @menesesp20',
+                fig_text(s ='MatchDay:' + str(gameID) + ' ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.88, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
 
         elif (Player != None) & (gameID == 'All Season'):
@@ -1071,7 +1071,7 @@ def touch_Map(club, gameID, Player=None):
                         x = 0.5, y = 0.93, highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=16);
                 
-                fig_text(s ='All Season ' +  '| World Cup Catar 2022 | @menesesp20',
+                fig_text(s ='All Season ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.88, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
 
         #############################################################################################################################################
@@ -1156,7 +1156,7 @@ def heatMap_xT(club, gameDay, player=None):
                         x = 0.5, y = 0.95,  highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center' ,fontsize=14);
                 
-                fig_text(s ='All Season ' +  '| World Cup Catar 2022 | @menesesp20',
+                fig_text(s ='All Season ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.903, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
         else:
 
@@ -1164,7 +1164,7 @@ def heatMap_xT(club, gameDay, player=None):
                         x = 0.5, y = 0.93, highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=14);
                 
-                fig_text(s ='All Season ' +  '| World Cup Catar 2022 | @menesesp20',
+                fig_text(s ='All Season ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.88, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
         #fig_text(s = 'Coach: Jorge Jesus',
         #         x = 0.123, y = 0.97, color='#181818', fontweight='bold', ha='center', alpha=0.8, fontsize=12);
@@ -1207,7 +1207,7 @@ def heatMapChances(team, data, player=None):
                     x = 0.53, y = 0.94, fontweight='bold',
                     ha='center',fontsize=14, color='#181818');
 
-        fig_text(s = 'All open-play chances created in the ' + 'World Cup Catar 2022',
+        fig_text(s = 'All open-play chances created in the ' + 'La Liga',
                     x = 0.53, y = 0.9, fontweight='bold',
                     ha='center',fontsize=5, color='#181818', alpha=0.4);
 
@@ -1268,7 +1268,7 @@ def heatMapChances(team, data, player=None):
                         x = 0.53, y = 0.95, fontweight='bold',
                         ha='center',fontsize=14, color='#181818');
 
-        fig_text(s = 'All open-play chances created in the ' + 'World Cup Catar 2022',
+        fig_text(s = 'All open-play chances created in the ' + 'La Liga',
                     x = 0.53, y = 0.9, fontweight='bold',
                     ha='center',fontsize=5, color='#181818', alpha=0.4);
 
@@ -1567,7 +1567,7 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
 ######################################################################################################################################################
 ######################################################################################################################################################
 ######################################################################################################################################################
-        pass_nodes = pitch.scatter(avg['x'], avg['y'], s=100,
+        pass_nodes = pitch.scatter(avg['x'], avg['y'], s=250,
                                 cmap=pearl_earring_cmap, edgecolors="#010101", c=avg['xT'], linewidth=1.3, ax=ax, zorder=3)
 
 
@@ -1607,7 +1607,7 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
         matchID = network.Match_ID.unique()
         matchID = matchID[0]
 
-        fig_text(s = 'Passing Network' + ' ' + '|' + ' ' + 'MatchDay' + ' ' + str(matchID) + '| World Cup Catar 2022 | @menesesp20',
+        fig_text(s = 'Passing Network' + ' ' + '|' + ' ' + 'MatchDay' + ' ' + str(matchID) + '| La Liga | @menesesp20',
                 x = 0.52, y = 0.91,
                 color='#181818', fontweight='bold', ha='center',
                 fontsize=4);
@@ -1655,7 +1655,7 @@ def highTurnovers(club, gameDay, data, player=None):
 
         fig.suptitle(club, fontsize=14, color='black', y=0.98)
 
-        fig_text(s = 'High Turnovers | World Cup Catar 2022 | @menesesp20',
+        fig_text(s = 'High Turnovers | La Liga | @menesesp20',
                 x = 0.5, y = 0.92, color='black', ha='center', fontsize=5);
         
         #fig_text(s = 'Coach: Jorge Jesus',
@@ -2055,7 +2055,7 @@ def dashboardDeffensive(club, matchDay, playerName, league, data):
                         color='#181818', fontweight='bold', ha='center' ,fontsize=16);
                 
                 if matchDay != 'All Season':
-                        fig_text(s = 'World Cup Catar 2022 | @menesesp20',
+                        fig_text(s = 'La Liga | @menesesp20',
                                 x = 0.33, y = 0.89 , color='#181818', fontweight='bold', ha='center' ,fontsize=7);
 
                 if matchDay == 'All Season':
@@ -2283,7 +2283,7 @@ def dashboardOffensive(club, playerName, matchDay, league, data):
                         color='#181818', fontweight='bold', ha='center' ,fontsize=8, alpha=0.8);
 
         elif matchDay == 'All Season':
-                fig_text(s ='World Cup Catar 2022 | @menesesp20',
+                fig_text(s ='La Liga | @menesesp20',
                         x = 0.33, y = 0.88,
                         color='#181818', fontweight='bold', ha='center' ,fontsize=5, alpha=0.8);
 
@@ -2785,7 +2785,7 @@ def plotDasboardZone14(team, league, data):
                 ha='center', va='center',
                 fontsize=18)
 
-    fig_text(s = 'World Cup Catar 2022 | @Menesesp20',
+    fig_text(s = 'La Liga | @Menesesp20',
                 x = 0.37, y = 0.84,
                 color='#181818', fontweight='bold',
                 ha='center', va='center',
@@ -2929,7 +2929,7 @@ def xT_Flow(club, gameDay, league, data):
     Title = fig_text(s = f'<{club}>' + ' ' + 'xT Flow',
                      x = 0.48, y = 0.97, highlight_textprops = highlight_textprops ,fontweight='bold', ha='center', fontsize=50 ,color='#181818');
 
-    fig_text(s = 'World Cup Catar 2022 | xT values based on Karun Singhs model | @menesesp20',
+    fig_text(s = 'La Liga | xT values based on Karun Singhs model | @menesesp20',
              x = 0.5, y = 0.92, fontweight='bold',
              ha='center', fontsize=16, color='#181818', alpha=0.4);
 
@@ -3025,7 +3025,7 @@ def touch_Flow(club, league):
                      x = 0.438, y = 0.93, highlight_textprops = highlight_textprops,
                      fontweight='bold', ha='center', fontsize=14, color='#181818');
 
-    fig_text(s = 'World Cup Catar 2022 | Passes Final 3rd flow graph | @menesesp20',
+    fig_text(s = 'La Liga | Passes Final 3rd flow graph | @menesesp20',
              x = 0.43, y = 0.89,
              fontweight='bold', ha='center', fontsize=5, color='#181818', alpha=0.4);
 
@@ -3287,7 +3287,7 @@ def GoalKick(club, league, data):
                 fig.suptitle('How do they come out playing?', fontsize=14, color='#181818',
                         fontweight = "bold", x=0.53, y=0.93)
 
-                fig_text(s = "GoalKick | World Cup Catar 2022 | @menesesp20",
+                fig_text(s = "GoalKick | La Liga | @menesesp20",
                         x = 0.5, y = 0.89,
                         color='#181818', fontweight='bold', ha='center', fontsize=5);
 
@@ -3368,7 +3368,7 @@ def counterPressMap(team, league, data, player=None):
                 x = 0.53, y = 0.93, fontweight='bold',
                 ha='center',fontsize=14, color='#181818');
 
-    fig_text(s = 'World Cup Catar 2022 | @Menesesp20',
+    fig_text(s = 'La Liga | @Menesesp20',
                 x = 0.53, y = 0.89, fontweight='bold',
                 ha='center',fontsize=8, color='#181818', alpha=0.4);
 
@@ -3614,7 +3614,7 @@ def through_passMap(gameID, club, league, data, playerName=None):
                         x = 0.5, y = 0.91, highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=14);
                 
-                fig_text(s ='All Season' + ' ' +  '| World Cup Catar 2022 | @menesesp20',
+                fig_text(s ='All Season' + ' ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.85, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
 
         if (playerName != None) & (gameID != 'All Season'):
@@ -3630,7 +3630,7 @@ def through_passMap(gameID, club, league, data, playerName=None):
                         x = 0.5, y = 0.91, highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=14);
                 
-                fig_text(s ='All Season' + ' ' +  '| World Cup Catar 2022 | @menesesp20',
+                fig_text(s ='All Season' + ' ' +  '| La Liga | @menesesp20',
                         x = 0.5, y = 0.85, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
         
         ###############################################################################################################################################################
@@ -3895,7 +3895,7 @@ def halfspaces_Zone14(club, league):
 
     fig.suptitle(club, fontsize=14, color='#181818', fontweight = "bold", y=0.93)
 
-    Title = fig_text(s = 'Half Spaces Zone 14 passes | World Cup Catar 2022 | @menesesp20',
+    Title = fig_text(s = 'Half Spaces Zone 14 passes | La Liga | @menesesp20',
                      x = 0.51, y = 0.89, color='#181818', ha='center',
                      fontweight = "bold", fontsize=5);
 
@@ -4142,7 +4142,7 @@ def finalThird(club, matchDay, league, data):
                              fontweight = "bold",
                              x=0.525, y=1)
 
-                fig_text(s = "Key Passes | World Cup Catar 2022 | @menesesp20",
+                fig_text(s = "Key Passes | La Liga | @menesesp20",
                          x = 0.5, y = 0.95,
                          color='#1b1b1b', fontweight='bold',
                          ha='center',
@@ -4602,7 +4602,7 @@ def cornersTaken(club, league, data):
 
         fig.suptitle(club + ' ' + 'Corners', fontsize=14, color='#181818', fontweight = "bold", x=0.5, y=0.93, ha='center', va='center')
 
-        Title = fig_text(s = 'World Cup Catar 2022 | @menesesp20',
+        Title = fig_text(s = 'La Liga | @menesesp20',
                          x = 0.5, y = 0.89,
                          color='#181818', fontweight='bold', ha='center', va='center', fontsize=5);
 
@@ -5435,7 +5435,7 @@ def field_Tilt(club, league, gameDay):
              color='#181818', fontweight='bold',
              fontsize=14);
     
-    fig_text(s =  'World Cup Catar 2022 | @menesesp20',
+    fig_text(s =  'La Liga | @menesesp20',
              x = 0.515, y = 0.93,
              color='#181818', fontweight='bold',
              ha='center', va='center',
@@ -8060,7 +8060,7 @@ def pizza_ComparePhysical(physical, playerName, playerName2, cols):
     )
 
 
-    fig_text(s = 'Physical Template | World Cup Catar 2022',
+    fig_text(s = 'Physical Template | La Liga',
             x = 0.515, y = 1.12,
             color='#181818',
             fontweight='bold', ha='center',

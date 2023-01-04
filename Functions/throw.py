@@ -84,7 +84,7 @@ clubColors = {'Atlético Madrid' : ['#e23829', '#262e62'],
 
 #############################################################################################################################################################
 
-def search_qualifierOPTA(df, list_Name, event):
+def search_qualifierOPTA(df, event):
   cols = ['Match_ID', 'name', 'x', 'y', 'endX', 'endY',
           'minute', 'second',
           'typedisplayName', 'outcomeTypedisplayName',
@@ -106,7 +106,7 @@ def search_qualifierOPTA(df, list_Name, event):
 
 corners = []
 
-corners = search_qualifierOPTA(eventsPlayers, corners, 'CornerTaken')
+corners = search_qualifierOPTA(eventsPlayers, 'CornerTaken')
 
 cols_Cluster = ['team', 'typedisplayName', 'qualifiers', 'x', 'y', 'endX', 'endY']
 

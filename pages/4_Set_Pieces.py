@@ -141,7 +141,7 @@ cornersData = search_qualifierOPTA(eventsPlayers, 'CornerTaken')
 
 throwIn = []
 
-throwIn = search_qualifierOPTA(eventsPlayers, throwIn, 'ThrowIn')
+throwIn = search_qualifierOPTA(eventsPlayers, 'ThrowIn')
 
 if Viz_choice == 'Corners':
 

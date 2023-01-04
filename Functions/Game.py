@@ -1374,7 +1374,7 @@ def passing_networkWhoScored(team, league, gameDay, afterSub=None):
 
         ##################################################################################################################################################################
 
-        fig, ax = plt.subplots(figsize=(6,4))
+        fig, ax = plt.subplots(figsize=(8, 6), dpi=300)
 
         pitch = VerticalPitch(pitch_type='opta',
                               pitch_color='#E8E8E8', line_color='#181818',

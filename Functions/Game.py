@@ -100,7 +100,36 @@ clubColors = {'Brazil' : ['#fadb04', '#1c3474'],
               'Costa Rica' : ['#ff0000', '#202960'],
               'Catar' : ['#7f1244', '#ffffff'],
               'Ecuador' : ['#ffce00', '#002255'],
-              'South Korea' : ['#021858', '#ffffff']}
+              'South Korea' : ['#021858', '#ffffff'],
+              'Atlético Madrid' : ['#e23829', '#262e62'],
+              'Osasuna' : ['#ab172c', '#182c4c'],
+              'Getafe' : ['#0b5ea2', '#5ba034'],
+              'Granada' : ['#c40d2d', '#e8e8e8'],
+              'Levante' : ['#b3043b', '#075ba0'],
+              'Rayo Vallecano' : ['#dd2e34', '#e8e8e8'],
+              'Celta Vigo' : ['#b7d0e7', '#dc1443'],
+              'Espanyol' : ['#338ecc', '#e8b614'],
+              'Betis' : ['#158c4b', '#e8e8e8'],
+              'Real Sociedad' : ['#0b67ab', '#e8e8e8'],
+              'Sevilla' : ['#d41926', '#e8e8e8'],
+              'Valencia' : ['#fada0d', '#e8e8e8'],
+              'Villarreal' : ['#f2e166', '#065283'],
+              'Athletic Club' : ['#ff0000', '#e8e8e8'],
+              'Real Madrid' : ['#1a346e', '#e8e8e8'],
+              'FC Barcelona' : ['#c2043a', '#06274c'],
+              'Deportivo Alavés' : ['#062494', '#e8e8e8'],
+              'Elche' : ['#076235', '#e8e8e8'],
+              'Mallorca' : ['#ff0000', '#f9e006'],
+              'Valladolid' : ['#5b2482', '#e8e8e8'],
+              'Almeria' : ['#ff0000', '#e8e8e8'],
+              ###################################
+              'Corinthians' : ['#ff0000', '#e8e8e8'],
+              'Avai' : ['#00679a', '#e8e8e8'],
+              'Flamengo' : ['#ff0000', '#181818'],
+              'Palmeiras' : ['#046434', '#e8e8e8'],
+              ###################################
+              'Manchester City' : ['#7bb1d8', '#062e63'],
+              'Liverpool' : ['#d40424', '#e2e1ab']}
 
 df = pd.read_csv('Data/opta/optaData.csv')
 df["matchTimestamp"] = 60 * df["minute"] + df["second"]

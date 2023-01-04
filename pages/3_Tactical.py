@@ -98,7 +98,7 @@ if graphs_choice == 'xT Field':
 
     first, second, third = st.columns(3)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -138,7 +138,7 @@ if graphs_choice == 'Passing Network':
 
     first, second, third = st.columns(3)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -166,7 +166,7 @@ if graphs_choice == 'Area Covered Front Players':
 
     first, second, third = st.columns(3)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -316,7 +316,7 @@ if graphs_choice == 'Crosses':
 
     first, second, third, fourth = st.columns(4)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -368,7 +368,7 @@ if graphs_choice == 'Switch Play':
 
     first, second, third, fourth = st.columns(4)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = first.selectbox('Choose league:', leagues)
 

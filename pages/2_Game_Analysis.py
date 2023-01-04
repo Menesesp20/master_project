@@ -102,7 +102,7 @@ if graphsFlows_choice == 'Field Tilt':
 
     st.title('Where we are in the field?')
 
-    first, second = st.columns(2)
+    first, second, third = st.columns(3)
 
     teams = eventsPlayers.team.unique()
 
@@ -120,7 +120,11 @@ if graphsFlows_choice == 'Field Tilt':
 
     matchDay_choice = second.selectbox('Choose MatchDay:', matchDay)
 
-    fig = fc.field_Tilt(teams_choice, matchDay_choice)
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
+
+    league_choice = third.selectbox('Choose league:', leagues)
+
+    fig = fc.field_Tilt(teams_choice, league_choice, matchDay_choice)
 
     st.pyplot(fig)
 
@@ -136,7 +140,7 @@ elif graphsFlows_choice == 'xT Flow':
 
     matchDay_choice = first.selectbox('Choose MatchDay:', matchWeek)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = second.selectbox('Choose league:', leagues)
 
@@ -152,7 +156,7 @@ elif graphsFlows_choice == 'xT Flow':
 
 #############################################################################################################################################################
 
-    fig = fc.xT_Flow(teams_choice, matchDay_choice, 'WhoScored')
+    fig = fc.xT_Flow(teams_choice, matchDay_choice, league_choice, 'WhoScored')
 
     st.pyplot(fig)
     
@@ -162,7 +166,7 @@ elif graphsFlows_choice == 'Crosses':
 
     first, second, third, fourth = st.columns(4)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -210,7 +214,7 @@ elif graphsFlows_choice == 'Switch Play':
 
     first, second, third, fourth = st.columns(4)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = first.selectbox('Choose league:', leagues)
 
@@ -304,7 +308,7 @@ elif graphsFlows_choice == 'Passing Network':
 
     first, second, third = st.columns(3)
 
-    leagues = ['Mundial', 'La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga']
+    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
 
     league_choice = first.selectbox('Choose league:', leagues)
 

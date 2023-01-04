@@ -1040,19 +1040,19 @@ def touch_Map(club, league, gameID, Player=None):
 
         if (Player == None) & (gameID != 'All Season'):
                 fig_text(s =f'<{club}>' + ' ' + 'Touch Map',
-                        x = 0.5, y = 0.91, highlight_textprops = highlight_textprops,
+                        x = 0.5, y = 0.925, highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=25);
                 
                 fig_text(s ='MatchDay:' + str(gameID) + ' ' +  '| Season 21-22 | @menesesp20',
-                        x = 0.5, y = 0.85, color='#181818', fontweight='bold', ha='center', va='center', fontsize=16, alpha=0.7);
+                        x = 0.5, y = 0.87, color='#181818', fontweight='bold', ha='center', va='center', fontsize=11, alpha=0.7);
 
         elif (Player == None) & (gameID == 'All Season'):
                 fig_text(s =f'<{club}>' + ' ' + 'Touch Map',
-                        x = 0.5, y = 0.91, highlight_textprops = highlight_textprops,
+                        x = 0.5, y = 0.925, highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=25);
                 
                 fig_text(s ='All Season' + ' ' +  '| Season 21-22 | @menesesp20',
-                        x = 0.5, y = 0.85, color='#181818', fontweight='bold', ha='center', va='center', fontsize=16, alpha=0.7);
+                        x = 0.5, y = 0.87, color='#181818', fontweight='bold', ha='center', va='center', fontsize=11, alpha=0.7);
 
         if (Player != None) & (gameID != 'All Season'):
                 fig_text(s =f'<{Player}>' + ' ' + 'Touch Map',

@@ -35,6 +35,7 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 #############################################################################################################################################################
+<<<<<<< HEAD:Set_Pieces.py
 from Functions.data import getDataOPTA
 from Functions.data import getDataWyScout
 
@@ -44,6 +45,25 @@ df = getDataWyScout()
 #############################################################################################################################################################
 
 eventsPlayers = getDataOPTA()
+=======
+
+@st.cache
+def load_model():
+    
+    df = pd.read_csv('Data/WyScout/WyScout.csv')
+    return df
+
+df = load_model()
+
+#############################################################################################################################################################
+
+@st.cache
+def data():
+    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+    return eventsPlayers
+
+eventsPlayers = data()
+>>>>>>> parent of 73d9b2d (update):pages/4_Set_Pieces.py
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS

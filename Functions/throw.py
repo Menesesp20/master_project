@@ -41,12 +41,21 @@ import streamlit as st
 
 #############################################################################################################################################################
 
+<<<<<<< HEAD
 from Functions.data import getDataOPTA
 from Functions.data import getDataWyScout
 
 #############################################################################################################################################################
 
 eventsPlayers = getDataOPTA()
+=======
+@st.cache
+def data():
+    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+    return eventsPlayers
+
+eventsPlayers = data()
+>>>>>>> parent of 73d9b2d (update)
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS

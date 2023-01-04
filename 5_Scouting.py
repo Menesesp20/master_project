@@ -34,23 +34,14 @@ plt.rcParams['font.sans-serif'] = prop.get_name()
 import streamlit as st
 
 #############################################################################################################################################################
+from Functions import data as d
 
-@st.cache
-def load_model():
-    
-    df = pd.read_csv('Data/WyScout/WyScout.csv')
-    return df
-
-df = load_model()
+#############################################################################################################################################################
+df = d.getDataWyScout()
 
 #############################################################################################################################################################
 
-@st.cache
-def data():
-    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
-    return eventsPlayers
-
-eventsPlayers = data()
+eventsPlayers = d.getDataOPTA()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS

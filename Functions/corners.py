@@ -38,14 +38,9 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 #############################################################################################################################################################
-import streamlit as st
+from Functions import data as d
 
-@st.cache
-def data():
-    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
-    return eventsPlayers
-
-eventsPlayers = data()
+eventsPlayers = d.getDataOPTA()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 #For loop to create a new column in the DataFrame

@@ -134,13 +134,12 @@ clubColors = {'Brazil' : ['#fadb04', '#1c3474'],
 import streamlit as st
 
 #############################################################################################################################################################
+from Functions import data as d
 
-@st.cache
-def data():
-    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
-    return eventsPlayers
+#############################################################################################################################################################
 
-df = data()
+df = d.getDataOPTA()
+df['isTouch'] = df['isTouch'].astype(bool)
 df['isTouch'] = df['isTouch'].astype(bool)
 df["matchTimestamp"] = 60 * df["minute"] + df["second"]
 df["matchTimestamp"] = pd.to_timedelta(df["matchTimestamp"], unit='s')

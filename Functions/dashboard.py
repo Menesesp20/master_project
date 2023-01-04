@@ -44,13 +44,12 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 #############################################################################################################################################################
-import streamlit as st
+from Functions import data as d
 
-@st.cache
-def load_model():
-	  return pd.read_csv('Data/opta/optaData.csv')
+#############################################################################################################################################################
 
-eventsPlayers =  load_model()
+eventsPlayers = d.getDataOPTA()
+eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS
 

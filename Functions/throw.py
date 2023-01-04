@@ -41,12 +41,11 @@ import streamlit as st
 
 #############################################################################################################################################################
 
-@st.cache
-def data():
-    eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
-    return eventsPlayers
+from Functions import data as d
 
-eventsPlayers = data()
+#############################################################################################################################################################
+
+eventsPlayers = d.getDataOPTA()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS

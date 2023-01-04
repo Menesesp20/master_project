@@ -1120,7 +1120,7 @@ def heatMap_xT(club, league, gameDay, player=None):
         else:
                 xTheatMap = xTDF.loc[(xTDF['name'] == player) & (xTDF['Match_ID'] == gameDay)]
 
-        fig, ax = plt.subplots(figsize=(6,4))
+        fig, ax = plt.subplots(figsize=(10, 15))
 
         pitch = Pitch(pitch_type='opta',
                       pitch_color='#E8E8E8', line_color='#181818',

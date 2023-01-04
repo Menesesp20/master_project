@@ -98,7 +98,7 @@ from Functions import Game as fc
 
 #############################################################################################################################################################
     
-graphs = ['Passing Network', 'Heat Map', 'xT Heat Map', 'Goal kicks', 'Crosses', 'Switch Play', 'xT Field', 'Field Zones', 'Area Covered Front Players']
+graphs = ['Passing Network', 'Heat Map', 'xT Heat Map', 'Goal kicks', 'Crosses', 'Switch Play', 'xT Field', 'Area Covered Front Players']
 
 graphs_choice = st.sidebar.selectbox('What do you want to analyze?', graphs)
 
@@ -209,34 +209,9 @@ elif graphs_choice == 'xT Field':
 
     matchDay_choice = third.selectbox('Choose MatchDay:', matchDay)
 
-    fig = ds.finalThird(eventsPlayers, league_choice, teams_choice, matchDay_choice, 3)
+    fig = ds.finalThird(eventsPlayers, league_choice, teams_choice, matchDay_choice, 10)
 
     st.pyplot(fig)
-
-elif graphs_choice == 'Field Zones':
-
-    st.title('Where they recover most the ball?')
-
-    first, second = st.columns(2)
-
-    leagues = ['La Liga', 'Premier League', 'Ligue 1', 'Serie A', 'Bundesliga', 'Mundial']
-
-    league_choice = first.selectbox('Choose league:', leagues)
-
-    clubDF = eventsPlayers.loc[eventsPlayers.League == league_choice]
-
-    teams = clubDF.team.unique()
-
-    teams = teams.tolist()
-
-    teams.remove('Athletic Club')
-
-    teams_choice = second.selectbox('Choose team:', teams)
-
-    fig = ds.pitchZonesActions(eventsPlayers, 'typedisplayName', 'BallRecovery', league_choice, teams_choice)
-
-    st.pyplot(fig)
-
 
 elif graphs_choice == 'Crosses':
 
@@ -252,7 +227,7 @@ elif graphs_choice == 'Crosses':
 
     teams = teams.tolist()
 
-    teams.insert(0, 'Athletic Club')
+    teams.remove('Athletic Club')
 
     teams_choice = second.selectbox('Choose team:', teams)
 
@@ -300,7 +275,7 @@ elif graphs_choice == 'Switch Play':
 
     teams = teams.tolist()
 
-    teams.insert(0, 'Athletic Club')
+    teams.remove('Athletic Club')
 
     teams_choice = second.selectbox('Choose team:', teams)
 
@@ -336,7 +311,7 @@ elif graphs_choice == 'Heat Map':
 
     teams = teams.tolist()
 
-    teams.insert(0, 'Athletic Club')
+    teams.remove('Athletic Club')
 
     teams_choice = first.selectbox('Choose team:', teams)
 
@@ -366,7 +341,7 @@ elif graphs_choice == 'xT Heat Map':
 
     teams = teams.tolist()
 
-    teams.insert(0, 'Athletic Club')
+    teams.remove('Athletic Club')
 
     teams_choice = first.selectbox('Choose team:', teams)
 
@@ -402,7 +377,7 @@ elif graphs_choice == 'Passing Network':
 
     teams = teams.tolist()
 
-    teams.insert(0, 'Athletic Club')
+    teams.remove('Athletic Club')
 
     teams_choice = second.selectbox('Choose team:', teams)
 

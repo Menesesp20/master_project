@@ -37,22 +37,20 @@ import streamlit as st
 
 @st.cache
 def load_model():
+    
     df = pd.read_csv('Data/WyScout/WyScout.csv')
     return df
 
 df = load_model()
 
-df.drop_duplicates(subset=['Player'], keep='first', inplace=True)
-
 #############################################################################################################################################################
 
 @st.cache
-def load_model():
+def data():
     eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
     return eventsPlayers
 
-eventsPlayers = load_model()
-
+eventsPlayers = data()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS

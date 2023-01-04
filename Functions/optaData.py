@@ -24,11 +24,12 @@ plt.rcParams['font.sans-serif'] = prop.get_name()
 import streamlit as st
 
 #############################################################################################################################################################
-from . import data as d
+from data import getDataOPTA
+from data import getDataWyScout
 
 #############################################################################################################################################################
 
-eventsPlayers = d.getDataOPTA()
+eventsPlayers = getDataOPTA()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 #For loop to create a new column in the DataFrame

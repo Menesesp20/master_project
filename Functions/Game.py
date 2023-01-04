@@ -134,11 +134,12 @@ clubColors = {'Brazil' : ['#fadb04', '#1c3474'],
 import streamlit as st
 
 #############################################################################################################################################################
-from . import data as d
+from data import getDataOPTA
+from data import getDataWyScout
 
 #############################################################################################################################################################
 
-df = d.getDataOPTA()
+df = getDataOPTA()
 df['isTouch'] = df['isTouch'].astype(bool)
 df['isTouch'] = df['isTouch'].astype(bool)
 df["matchTimestamp"] = 60 * df["minute"] + df["second"]

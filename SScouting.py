@@ -34,14 +34,15 @@ plt.rcParams['font.sans-serif'] = prop.get_name()
 import streamlit as st
 
 #############################################################################################################################################################
-from . import data as d
+from data import getDataOPTA
+from data import getDataWyScout
 
 #############################################################################################################################################################
-df = d.getDataWyScout()
+df = getDataWyScout()
 
 #############################################################################################################################################################
 
-eventsPlayers = d.getDataOPTA()
+eventsPlayers = getDataOPTA()
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
 # DICTIONARY OF COLORS

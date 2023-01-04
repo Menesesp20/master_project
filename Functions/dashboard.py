@@ -246,11 +246,11 @@ def switchPlay(df, league, club, gameID, playerName):
     fig, ax = plt.subplots(figsize=(18,14))
 
     pitch = Pitch(pitch_type='opta', pad_top=0.1, pad_bottom=0.5,
-                  pitch_color='#181818', line_color='white', line_zorder=1, linewidth=5, spot_scale=0.005)
+                  pitch_color='#E8E8E8', line_color='#181818', line_zorder=1, linewidth=5, spot_scale=0.005)
 
     pitch.draw(ax=ax)
 
-    fig.set_facecolor('#181818')
+    fig.set_facecolor('#E8E8E8')
 
     ###############################################################################################################################################
 
@@ -262,21 +262,21 @@ def switchPlay(df, league, club, gameID, playerName):
     fig_text(s = f'<{club}>' + "<'s>" +  ' ' + 'Switch pass map',
              x = 0.52, y = 0.97,
              highlight_textprops = highlight_textprops,
-             color='white', ha='center', fontsize=50);
+             color='#181818', ha='center', fontsize=50);
 
     if gameID != 'All Season':
         fig_text(s =f'<{homeName}>' + ' ' + 'vs' + ' ' + f'<{awayName}> |' + ' ' + str(gameID) + ' ' +'| Season 21-22 | @menesesp20',
                 x = 0.52, y = 0.9, ha='center', va='center',
-                color='white', alpha=0.7, fontweight='bold', fontsize=20);
+                color='#181818', alpha=0.7, fontweight='bold', fontsize=20);
 
     elif gameID == 'All Season':
         fig_text(s ='| Season 21-22 | @menesesp20',
                 x = 0.5, y = 0.9, ha='center', va='center',
-                color='white', alpha=0.7, fontweight='bold', fontsize=20);        
+                color='#181818', alpha=0.7, fontweight='bold', fontsize=20);        
 
     fig_text(s = 'Switches attempted:' + ' ' + str(len(passes_Left) + len(passes_Right)),
              x = 0.25, y = 0.78, ha='center', va='center',
-             color='white', alpha=0.7, fontweight='bold', fontsize=20);
+             color='#181818', alpha=0.7, fontweight='bold', fontsize=20);
 
     ###############################################################################################################################################
 
@@ -287,7 +287,7 @@ def switchPlay(df, league, club, gameID, playerName):
 
     #Criação das setas que simbolizam os passes realizados bem sucedidos
     pitch.arrows(unsucess_Left.x, unsucess_Left.y, unsucess_Left.endX, unsucess_Left.endY,
-                 color='white', alpha=0.7, ax=ax,
+                 color='#181818', alpha=0.7, ax=ax,
                  width=2, headwidth=5, headlength=5)
 
     ###############################################################################################################################################
@@ -299,17 +299,17 @@ def switchPlay(df, league, club, gameID, playerName):
     
     #Criação das setas que simbolizam os passes realizados bem sucedidos
     pitch.arrows(unsucess_Right.x, unsucess_Right.y, unsucess_Right.endX, unsucess_Right.endY,
-                 color='white', alpha=0.7, ax=ax,
+                 color='#181818', alpha=0.7, ax=ax,
                  width=2, headwidth=5, headlength=5,
                  label='Passes unsuccessful')
 
     ###############################################################################################################################################
 
     #Criação da legenda
-    l = ax.legend(bbox_to_anchor=(0.02, 0), loc='upper left', facecolor='white', framealpha=0, labelspacing=.7)
-    #Ciclo FOR para atribuir a white color na legend
+    l = ax.legend(bbox_to_anchor=(0.02, 0), loc='upper left', facecolor='#181818', framealpha=0, labelspacing=.7)
+    #Ciclo FOR para atribuir a #181818 color na legend
     for text in l.get_texts():
-        text.set_color("white")
+        text.set_color("#181818")
 
     ###############################################################################################################################################
 
@@ -318,13 +318,13 @@ def switchPlay(df, league, club, gameID, playerName):
 
     fig_text(s = 'Attacking Direction',
                  x = 0.5, y = 0.17,
-                 color='white', fontweight='bold',
+                 color='#181818', fontweight='bold',
                  ha='center', va='center',
                  fontsize=14)
 
     # ARROW DIRECTION OF PLAY
     ax.annotate('', xy=(0.3, -0.07), xycoords='axes fraction', xytext=(0.7, -0.07), 
-            arrowprops=dict(arrowstyle="<-", color='white', lw=2))
+            arrowprops=dict(arrowstyle="<-", color='#181818', lw=2))
 #############################################################################################################################################################
 
 def Cross(df, league, club, matchDay, playerName=None):
@@ -352,21 +352,21 @@ def Cross(df, league, club, matchDay, playerName=None):
 
         pitch = VerticalPitch(pitch_type='opta', line_zorder=2,
                                 half=True,
-                                pitch_color='#181818', line_color='#efefef')
+                                pitch_color='#E8E8E8', line_color='#181818')
 
         fig, ax = pitch.draw(figsize=(15, 10))
-        fig.set_facecolor('#181818')
+        fig.set_facecolor('#E8E8E8')
 
         pearl_earring_cmap = LinearSegmentedColormap.from_list("Pearl Earring - 10 colors",
-                                                                ['#181818', '#3d0000', '#ff0000'], N=25)
+                                                                ['#E8E8E8', '#3d0000', '#ff0000'], N=25)
 
         player['x'] = player['x'].astype(float)
         player['y'] = player['y'].astype(float)
 
-        scatter = pitch.scatter(player['x'], player['y'], ax=ax, edgecolor='white', facecolor='black', zorder=2)
+        scatter = pitch.scatter(player['x'], player['y'], ax=ax, edgecolor='#181818', facecolor='#E8E8E8', zorder=2)
 
         bs = pitch.bin_statistic(player['x'], player['y'], bins=(5, 5))
-        heatmap = pitch.heatmap(bs, edgecolors='#181818', ax=ax, cmap=pearl_earring_cmap)
+        heatmap = pitch.heatmap(bs, edgecolors='#E8E8E8', ax=ax, cmap=pearl_earring_cmap)
 
         ######################################################################################################################
 
@@ -377,10 +377,10 @@ def Cross(df, league, club, matchDay, playerName=None):
 
         ######################################################################################################################
 
-        ax.axhline(90, c='#181818', linestyle='-', lw=2.5)
-        ax.axhline(80, c='#181818', linestyle='-', lw=2.5)
-        ax.axhline(69, c='#181818', linestyle='-', lw=2.5)
-        ax.axhline(60, c='#181818', linestyle='-', lw=2.5)
+        ax.axhline(90, c='#E8E8E8', linestyle='-', lw=2.5)
+        ax.axhline(80, c='#E8E8E8', linestyle='-', lw=2.5)
+        ax.axhline(69, c='#E8E8E8', linestyle='-', lw=2.5)
+        ax.axhline(60, c='#E8E8E8', linestyle='-', lw=2.5)
 
         ######################################################################################################################
         # 90, 80:90, 69:80, 60:69
@@ -392,7 +392,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # TOTAL RIGHT 1
                 fig_text(s = str((round(len(zone1) / len(player) * 100, 2))) + '%',
                         x = 0.80, y = 0.85,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -404,7 +404,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # TOTAL RIGHT 2
                 fig_text(s = str((round(len(zone2) / len(player) * 100, 2))) + '%',
                         x = 0.80, y = 0.67,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -416,7 +416,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # TOTAL RIGHT 3
                 fig_text(s = str((round(len(zone3) / len(player) * 100, 2))) + '%',
                         x = 0.80, y = 0.5,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -428,7 +428,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # TOTAL RIGHT 4
                 fig_text(s = str((round(len(zone4) / len(player) * 100, 2))) + '%',
                         x = 0.80, y = 0.33,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
         ######################################################################################################################
@@ -443,7 +443,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # MID RIGHT 1
                 fig_text(s = str((round(len(zone1_1) / len(player) * 100, 2))) + '%',
                         x = 0.65, y = 0.85,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -455,7 +455,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # MID RIGHT 2
                 fig_text(s = str((round(len(zone1_2) / len(player) * 100, 2))) + '%',
                         x = 0.65, y = 0.67,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -467,7 +467,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # MID RIGHT 3
                 fig_text(s = str((round(len(zone1_3) / len(player) * 100, 2))) + '%',
                         x = 0.65, y = 0.5,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -479,7 +479,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # MID RIGHT 4
                 fig_text(s = str((round(len(zone1_4) / len(player) * 100, 2))) + '%',
                         x = 0.65, y = 0.33,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
         ######################################################################################################################
@@ -494,7 +494,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # MID LEFT 1
                 fig_text(s = str((round(len(zone2_1) / len(player) * 100, 2))) + '%',
                         x = 0.35, y = 0.85,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -506,7 +506,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # MID LEFT 2
                 fig_text(s = str((round(len(zone2_2) / len(player) * 100, 2))) + '%',
                         x = 0.35, y = 0.67,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -518,7 +518,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # MID LEFT 3
                 fig_text(s = str((round(len(zone3_3) / len(player) * 100, 2))) + '%',
                         x = 0.35, y = 0.5,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -530,7 +530,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # MID LEFT 4
                 fig_text(s = str((round(len(zone4_4) / len(player) * 100, 2))) + '%',
                         x = 0.35, y = 0.33,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
         ######################################################################################################################
@@ -544,7 +544,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # LEFT 1
                 fig_text(s = str((round(len(zone5) / len(player) * 100, 2))) + '%',
                         x = 0.2, y = 0.85,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -556,7 +556,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # LEFT 2
                 fig_text(s = str((round(len(zone6) / len(player) * 100, 2))) + '%',
                         x = 0.2, y = 0.67,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -568,7 +568,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # LEFT 3
                 fig_text(s = str((round(len(zone7) / len(player)* 100, 2))) + '%',
                         x = 0.2, y = 0.5,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
 
         ######################################################################################################################
 
@@ -580,7 +580,7 @@ def Cross(df, league, club, matchDay, playerName=None):
                 # LEFT 4
                 fig_text(s = str((round(len(zone8) / len(player) * 100, 2))) + '%',
                         x = 0.2, y = 0.33,
-                        color='white', fontweight='bold', ha='center' ,fontsize=25);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=25);
         
         color = clubColors.get(club)
 
@@ -595,19 +595,19 @@ def Cross(df, league, club, matchDay, playerName=None):
         if playerName == None:
                 fig_text(s ='Where they cross?',
                         x = 0.5, y = 1.12,
-                        color='white', fontweight='bold', ha='center' ,fontsize=50);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=50);
 
                 fig_text(s = 'Season 21-22 | @menesesp20',
                         x = 0.5, y = 1.05,
-                        color='white', fontweight='bold', ha='center' ,fontsize=16, alpha=0.7);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=16, alpha=0.7);
         else:
                 fig_text(s =f'<{playerName}>' + ' ' + 'Crosses',
                         x = 0.54, y = 1.12, highlight_textprops = highlight_textprops ,
-                        color='white', fontweight='bold', ha='center' ,fontsize=50);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=50);
 
                 fig_text(s = 'MatchDay:' + ' ' + matchDay + ' ' + '| Season 21-22 | @menesesp20',
                         x = 0.53, y = 1.05,
-                        color='white', fontweight='bold', ha='center' ,fontsize=16, alpha=0.7);
+                        color='#181818', fontweight='bold', ha='center' ,fontsize=16, alpha=0.7);
 
         # Club Logo
         fig = add_image(image='Images/Clubs/' + league + '/' + club + '.png', fig=fig, left=0.12, bottom=1.02, width=0.2, height=0.1)

@@ -1167,7 +1167,7 @@ def heatMap_xT(club, league, gameDay, player=None):
                         x = 0.5, y = 0.93, highlight_textprops = highlight_textprops,
                         color='#181818', fontweight='bold', ha='center', va='center', fontsize=14);
                 
-                fig_text(s ='All Season ' +  '| La Liga | @menesesp20',
+                fig_text(s ='| La Liga | @menesesp20',
                         x = 0.5, y = 0.88, color='#181818', fontweight='bold', ha='center', va='center', fontsize=5, alpha=0.7);
         #fig_text(s = 'Coach: Jorge Jesus',
         #         x = 0.123, y = 0.97, color='#181818', fontweight='bold', ha='center', alpha=0.8, fontsize=12);

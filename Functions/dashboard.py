@@ -44,8 +44,13 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 #############################################################################################################################################################
+import streamlit as st
 
-eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/opta/optaData.csv')
+
+eventsPlayers =  load_model()
 
 # DICTIONARY OF COLORS
 
@@ -1349,7 +1354,11 @@ def xT(df):
   eventsPlayers_xT = df
 
   #Import xT Grid, turn it into an array, and then get how many rows and columns it has
-  xT = pd.read_csv('xT/xT_Grid.csv', header=None)
+  @st.cache
+  def load_model():
+          return pd.read_csv('xT/xT_Grid.csv', header=None)
+  
+  xT = load_model()
   xT = np.array(xT)
   xT_rows, xT_cols = xT.shape
 

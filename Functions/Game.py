@@ -131,7 +131,13 @@ clubColors = {'Brazil' : ['#fadb04', '#1c3474'],
               'Manchester City' : ['#7bb1d8', '#062e63'],
               'Liverpool' : ['#d40424', '#e2e1ab']}
 
-df = pd.read_csv('Data/opta/optaData.csv')
+import streamlit as st
+
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/opta/optaData.csv')
+
+df = load_model()
 df["matchTimestamp"] = 60 * df["minute"] + df["second"]
 df["matchTimestamp"] = pd.to_timedelta(df["matchTimestamp"], unit='s')
 df.drop_duplicates(subset=['name', 'matchTimestamp', 'team', 'typedisplayName', 'x', 'y'], keep='first', inplace=True)
@@ -5647,8 +5653,11 @@ def possessionGained(team, league, eventType):
 ################################################################################################################################################
 #--------------------------------------------------- SCOUTING --------------------------------------------------------------------------------
 ################################################################################################################################################
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/WyScout/WyScout.csv')
 
-wyscout = pd.read_csv('Data/WyScout/WyScout.csv')
+wyscout = load_model()
 
 def playerAbility(df):
 

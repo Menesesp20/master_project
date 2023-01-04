@@ -21,8 +21,13 @@ plt.rcParams['font.family'] = 'sans-serif'
 plt.rcParams['font.sans-serif'] = prop.get_name()
 
 #############################################################################################################################################################
+import streamlit as st
 
-eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/opta/optaData.csv')
+
+eventsPlayers = load_model()
 
 #For loop to create a new column in the DataFrame
 teamName = []

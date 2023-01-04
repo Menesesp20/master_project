@@ -37,12 +37,18 @@ plt.rcParams['font.sans-serif'] = prop.get_name()
 import streamlit as st
 
 #############################################################################################################################################################
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/WyScout/WyScout.csv')
 
-df = pd.read_csv('Data/WyScout/WyScout.csv')
+df = load_model()
 
 #############################################################################################################################################################
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/opta/optaData.csv')
 
-eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+eventsPlayers = load_model()
 
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 

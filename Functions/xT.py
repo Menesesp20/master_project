@@ -36,7 +36,13 @@ plt.rcParams['font.sans-serif'] = prop.get_name()
 
 #############################################################################################################################################################
 
-df = pd.read_csv('Data/opta/optaData.csv')
+import streamlit as st
+
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/opta/optaData.csv')
+
+df = load_model()
 # DICTIONARY OF COLORS
 
 clubColors = {'Atlético Madrid' : ['#e23829', '#262e62'],

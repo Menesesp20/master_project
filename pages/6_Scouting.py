@@ -35,7 +35,11 @@ import streamlit as st
 
 #############################################################################################################################################################
 
-df = pd.read_csv('Data/WyScout/WyScout.csv')
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/WyScout/WyScout.csv')
+
+df = load_model()
 
 df.drop_duplicates(subset=['Player'], keep='first', inplace=True)
 
@@ -43,7 +47,11 @@ df.drop([ 'Team within selected timeframe', 'On loan'], axis=1, inplace=True)
 
 #############################################################################################################################################################
 
-eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/opta/optaData.csv')
+
+eventsPlayers = load_model()
 
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
@@ -424,7 +432,11 @@ elif scouting_choice == 'Player Similarity':
 
     role_choice = four.selectbox('Choose role :', ['Winger', 'Full Back', 'Defensive Midfield', 'Midfield', 'Offensive Midfield', 'Center Back', 'Forward'])
 
-    df = pd.read_csv('Data/WyScout/WyScout.csv')
+    @st.cache
+    def load_model():
+        return pd.read_csv('Data/WyScout/WyScout.csv')
+
+    df = load_model()
 
     df.drop_duplicates(subset=['Player'], keep='first', inplace=True)
 

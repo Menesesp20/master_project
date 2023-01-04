@@ -28,10 +28,17 @@ st.sidebar.image(logo)
 
 from Functions import dashboard as ds
 
-df = pd.read_csv('Data/WyScout/WyScout.csv')
-#############################################################################################################################################################
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/WyScout/WyScout.csv')
 
-eventsPlayers = pd.read_csv('Data/opta/optaData.csv')
+df = load_model()
+#############################################################################################################################################################
+@st.cache
+def load_model():
+	  return pd.read_csv('Data/opta/optaData.csv')
+
+eventsPlayers =  load_model()
 
 eventsPlayers['isTouch'] = eventsPlayers['isTouch'].astype(bool)
 
